@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 22:16:32 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/17 23:40:38 by panther          ###   ########.fr       */
+/*   Created: 2023/02/08 10:41:06 by annabrag          #+#    #+#             */
+/*   Updated: 2024/01/17 18:51:35 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+void	ft_swap_tab(int *a, int *b)
+{
+	int	tmp;
 
-void    push(t_stack **stack);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
-// take the first elem at the top of stack_a and push it to stack_b
-void    pa(t_stack **a, t_stack **b);
+void	ft_sort_int_tab(int *tab, int size)
+{
+	int	i;
+	int	j;
 
-// take the first elem at the top of stack_b and push it to stack_a
-void    pb(t_stack **a, t_stack **b);
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < (size - i - 1))
+		{
+			if (&tab[j] < &tab[j + 1])
+				ft_swap_tab(&tab[j], &tab[j + 1]);
+			j++;
+		}
+		i++;
+	}
+}

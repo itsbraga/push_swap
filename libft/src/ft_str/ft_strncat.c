@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 22:16:32 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/17 23:40:38 by panther          ###   ########.fr       */
+/*   Created: 2023/02/11 21:28:55 by annabrag          #+#    #+#             */
+/*   Updated: 2024/01/17 18:35:22 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+unsigned int	ft_strlen3(char *str)
+{
+	unsigned int	i;
 
-void    push(t_stack **stack);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
-// take the first elem at the top of stack_a and push it to stack_b
-void    pa(t_stack **a, t_stack **b);
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	i;
+	unsigned int	dlen;
 
-// take the first elem at the top of stack_b and push it to stack_a
-void    pb(t_stack **a, t_stack **b);
+	i = 0;
+	dlen = ft_strlen3(dest);
+	while (src[i] && i < nb)
+	{
+		dest[dlen + i] = src[i];
+		i++;
+	}
+	dest[dlen + i] = '\0';
+	return (dest);
+}

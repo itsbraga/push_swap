@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+         #
+#    By: panther <panther@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/01/16 22:38:24 by art3mis          ###   ########.fr        #
+#    Updated: 2024/01/18 00:30:58 by panther          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,13 +61,14 @@ UTILS_DIR		=	utils/
 UTILS_FILES		=	stack.c \
 					init.c \
 					index.c \
-					additional.c
+					handle_stack.c
 
 ALGORITHM_DIR	=	algorithm/
-ALGORITHM_FILES	=	sort.c
+ALGORITHM_FILES	=	sort.c \
+					sort_utils.c
 
 PARSING_DIR		=	parsing/
-PARSING_FILES	=	args.c
+PARSING_FILES	=	check_args.c
 
 # SRC_BONUS		=
 

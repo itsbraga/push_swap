@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/16 22:33:09 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/17 23:58:03 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,30 @@ typedef struct s_stack
 /******************************************************************************/
 
 // Instructions
-void        ft_swap(t_stack *stack);
-void        ft_sa(t_stack **a);
-void        ft_sb(t_stack **b);
-void        ft_ss(t_stack **a, t_stack **b);
+void        swap(t_stack *stack);
+void        sa(t_stack **a);
+void        sb(t_stack **b);
+void        ss(t_stack **a, t_stack **b);
 
 void        rotate(t_stack **stack);
-void        ft_ra(t_stack **a);
-void        ft_rb(t_stack **b);
-void        ft_rr(t_stack **a, t_stack **b);
+void        ra(t_stack **a);
+void        rb(t_stack **b);
+void        rr(t_stack **a, t_stack **b);
 
 void        reverseRotate(t_stack **stack);
-void        ft_rra(t_stack **a);
-void        ft_rrb(t_stack **b);
-void        ft_rrr(t_stack **a, t_stack **b);
+void        rra(t_stack **a);
+void        rrb(t_stack **b);
+void        rrr(t_stack **a, t_stack **b);
 
-void        ft_pa(t_stack **a, t_stack **b);
-void        ft_pb(t_stack **a, t_stack **b);
+void        push(t_stack **stack);
+void        pa(t_stack **a, t_stack **b);
+void        pb(t_stack **a, t_stack **b);
 
 // Algorithm
+void	    sort_three(t_stack **a, t_stack **b);
+void	    sort_four(t_stack **a, t_stack **b);
 void	    sort_five(t_stack **a, t_stack **b);
-void	    sort(t_stack **a, t_stack **b);
+void	    sortBig(t_stack **a, t_stack **b);
 bool	    is_sorted(t_stack **stack);
 
 // Stack functions
@@ -71,10 +74,9 @@ t_stack     *ft_last(t_stack *stack);
 t_stack     *ft_beforelast(t_stack *stack);
 void	    ft_addbottom(t_stack **stack, t_stack *new);
 void	    get_cost(t_stack **a, t_stack **b);
-void	    cost2move_both(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
 // Util functions
-void        ft_free(t_stack **stack);
+void        ft_clear(t_stack **stack);
 void        is_error(t_stack **a, t_stack **b);
 
 void        get_idx(t_stack **stack);

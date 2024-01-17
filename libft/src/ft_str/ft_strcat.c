@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:02:10 by annabrag          #+#    #+#             */
-/*   Updated: 2023/11/23 02:36:47 by art3mis          ###   ########.fr       */
+/*   Created: 2023/02/11 21:20:35 by annabrag          #+#    #+#             */
+/*   Updated: 2023/02/11 21:28:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
-
-int	ft_lstsize(t_list *lst)
+char	*ft_strcat(char *dest, char *src)
 {
-	int	counter;
+	int	i;
+	int	j;
 
-	counter = 0;
-	while (lst)
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j])
 	{
-		lst = lst->next;
-		counter++;
+		dest[i] = src[j];
+		j++;
+		i++;
 	}
-	return (counter);
+	dest[i] = '\0';
+	return (dest);
 }

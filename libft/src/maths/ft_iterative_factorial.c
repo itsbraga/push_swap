@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   index.c                                            :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 21:33:22 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/18 00:08:12 by panther          ###   ########.fr       */
+/*   Created: 2023/02/13 23:02:36 by annabrag          #+#    #+#             */
+/*   Updated: 2023/02/15 12:35:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
-void	get_idx(t_stack **stack)
+int	ft_iterative_factorial(int nb)
 {
-	t_stack *tmp;
+	int	fact;
 	int	i;
 
-	tmp = *stack;
-	i = 0;
-	while (tmp)
+	fact = 1;
+	if (nb < 0)
+		return (0);
+	i = 1;
+	while (i <= nb)
 	{
-		tmp->idx = i;
-		tmp = tmp->next;
+		fact *= i;
 		i++;
 	}
+	return (fact);
 }
 
-int	    get_target_idx();
+/*#include <stdio.h>
+
+int	main()
+{
+	int	n;
+
+	n = 5;
+	printf("Le factoriel de %d est : %d\n", n, ft_iterative_factorial(n));
+}*/

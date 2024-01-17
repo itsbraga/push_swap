@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:04:08 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/16 21:59:26 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/18 00:26:04 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,3 @@ void	ft_addbottom(t_stack **stack, t_stack *new)
 }
 
 void	get_cost(t_stack **a, t_stack **b);
-
-void	cost2move_both(t_stack **a, t_stack **b, int cost_a, int cost_b);

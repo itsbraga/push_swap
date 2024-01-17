@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args.c                                             :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/16 22:35:08 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:31:52 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	is_sign(char *argv)
 	i = 0;
 	if (!argv)
 		return (false);
-	if (!(argv[i] == '+' || argv[i] == '-'))
+	if (!(argv[i] == '-'))
 		return (false);
 	return (true);
 }
@@ -33,7 +33,9 @@ bool	arg_isdigit(char *argv)
 		i++;
 	while (argv[i] && ft_isdigit(argv[i]))
 		i++;
-	if (argv[i] != '\0' && !ft_isdigit(argv[i]))
+	if (argv[i] && !ft_isdigit(argv[i]))
 		return (false);
 	return (true);
 }
+
+bool	is_duplicate(char **argv);

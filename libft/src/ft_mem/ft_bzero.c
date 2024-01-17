@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:23:31 by annabrag          #+#    #+#             */
-/*   Updated: 2023/11/23 02:36:47 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/18 00:05:08 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ void	ft_bzero(void *s, size_t n)
 		*(char *)(s + i) = 0;
 		i++;
 	}
+}
+
+int		main(void)
+{
+	char	s[] = "hello";
+	printf("%s\n", s);
+	ft_bzero(s, 1);
+	printf("%s\n", s);
 }
 
 /*int	main(void)

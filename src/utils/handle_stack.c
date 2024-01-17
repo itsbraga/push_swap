@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   additional.c                                       :+:      :+:    :+:   */
+/*   handleStack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/16 22:01:19 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/18 00:00:18 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_free(t_stack **stack)
+void	ft_clear(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -30,9 +30,9 @@ void	ft_free(t_stack **stack)
 void    is_error(t_stack **a, t_stack **b)
 {
 	if (a == NULL || *a != NULL)
-		ft_free(a);
+		ft_clear(a);
 	if (b == NULL || *b != NULL)
-		ft_free(b);
+		ft_clear(b);
     write(2, "Error\n", 6);
     exit(1);
 }

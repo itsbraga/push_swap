@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 22:16:32 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/17 23:40:38 by panther          ###   ########.fr       */
+/*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
+/*   Updated: 2024/01/18 00:28:52 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    push(t_stack **stack);
+int     ft_stackSize(t_stack *stack)
+{
+    int size;
 
-// take the first elem at the top of stack_a and push it to stack_b
-void    pa(t_stack **a, t_stack **b);
+    size = 0;
+    if (!stack)
+        return (0);
+    while (stack->next)
+    {
+        size++;
+        stack = stack->next;
+    }
+    return (size);
+}
 
-// take the first elem at the top of stack_b and push it to stack_a
-void    pb(t_stack **a, t_stack **b);
+int     get_median(t_stack *stack)
+{
+    return (ft_stackSize(stack) / 2);
+}
+
+int	    get_target();

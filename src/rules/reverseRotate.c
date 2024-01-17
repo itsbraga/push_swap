@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverseRotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/16 21:59:38 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/17 23:39:47 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    reverseRotate(t_stack **stack)
 
 // rotates the elems of stack_a from one position downwards
 // the last elem becomes the first one
-void    ft_rra(t_stack **a)
+void    rra(t_stack **a)
 {
     reverseRotate(a);
     ft_printf("rra\n");
@@ -36,7 +36,7 @@ void    ft_rra(t_stack **a)
 
 // rotates all the elems of stack_b from one position downwards
 // the last elem becomes the first one
-void    ft_rrb(t_stack **b)
+void    rrb(t_stack **b)
 {
     reverseRotate(b);
     ft_printf("rrb\n");
@@ -44,7 +44,7 @@ void    ft_rrb(t_stack **b)
 
 // rotates all the elems of both stacks from one position downwards
 // the last elem becomes the first one
-void    ft_rrr(t_stack **a, t_stack **b)
+void    rrr(t_stack **a, t_stack **b)
 {
     reverseRotate(a);
     reverseRotate(b);

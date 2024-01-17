@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:44:52 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/03 21:07:02 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/01/17 18:59:16 by panther          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,45 @@ void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 int			ft_lstsize(t_list *lst);
 void		displayList(t_list *lst);
+
+// POOL functions
+int			base_check(char *base);
+int			i_belong2base(char c, char *base);
+int			ft_atoi_base(char *str, char *base);
+int			ft_len_nbr(int nbr, char *base);
+void		ft_putnbr_base2(int nbr, char *base_to, char *str);
+char		*ft_convert_base(char *nbr, char *base_from, char *base_to);
+void		ft_putnbr_base(int nbr, char *base);
+
+void		ft_rev_params(int argc, char **argv);
+
+int			ft_strcmp(char *s1, char *s2);
+char		*ft_strcapitalize(char *str);
+char		*ft_strcat(char *dest, char *src);
+char		*ft_strncat(char *dest, char *src, unsigned int nb);
+char		*ft_strlowcase(char *str);
+char		*ft_strupcase(char *str);
+char		*ft_strstr(char *str, char *to_find);
+void		ft_swap(char **a, char **b);
+
+void		ft_print_comb(void);
+void		ft_print_comb2(void);
+void		ft_swap_tab(int *a, int *b);;
+void		ft_rev_int_tab(int *tab, int size);
+void		ft_sort_int_tab(int *tab, int size);
+int			*ft_range(int min, int max);
+int			ft_ultimate_range(int **range, int min, int max);
+
+int			ft_iterative_factorial(int nb);
+int			ft_recursive_factorial(int nb);
+int			ft_iterative_power(int nb, int power);
+int			ft_recursive_power(int nb, int power);
+int			ft_is_prime(int nb);
+int			ft_find_next_prime(int nb);
+int			ft_sqrt(int nb);
+int			ft_fibonacci(int index);
+
+void		ft_foreach(int *tab, int length, void(*f)(int));
+int			*ft_map(int *tab, int length, int(*f)(int));
 
 #endif

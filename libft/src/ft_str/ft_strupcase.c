@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 15:02:10 by annabrag          #+#    #+#             */
-/*   Updated: 2023/11/23 02:36:47 by art3mis          ###   ########.fr       */
+/*   Created: 2023/02/08 19:58:26 by annabrag          #+#    #+#             */
+/*   Updated: 2023/02/11 15:12:05 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
-
-int	ft_lstsize(t_list *lst)
+char	*ft_strupcase(char *str)
 {
-	int	counter;
+	int	i;
 
-	counter = 0;
-	while (lst)
+	i = 0;
+	while (str[i])
 	{
-		lst = lst->next;
-		counter++;
+		if (str[i] >= 97 && str[i] <= 122)
+			str[i] -= 32;
+		i++;
 	}
-	return (counter);
+	return (str);
 }
