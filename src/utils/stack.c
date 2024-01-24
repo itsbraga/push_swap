@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:04:08 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/18 00:26:04 by panther          ###   ########.fr       */
+/*   Updated: 2024/01/24 21:16:31 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_stack	*ft_stackNew(int number)
 		return (NULL);
 	new->value = number;
 	new->idx = 0;
-	new->idx_sorted = -1;
+	new->final_idx = -1;
 	new->cost_a = -1;
 	new->cost_b = -1;
 	new->target = -1;
@@ -29,35 +29,33 @@ t_stack	*ft_stackNew(int number)
 	return (new);
 }
 
-t_stack	*ft_last(t_stack *stack)
+t_stack	*ft_last(t_stack *node)
 {
-	if (!stack)
+	if (!node)
 		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
+	while (node->next)
+		node = node->next;
+	return (node);
 }
 
-t_stack	*ft_beforelast(t_stack *stack)
+t_stack	*ft_beforelast(t_stack *node)
 {
-	if (!stack)
+	if (!node)
 		return (NULL);
-	while (stack->next && stack->next->next == NULL)
-		stack = stack->next;
-	return (stack);
+	while (node->next && node->next->next == NULL)
+		node = node->next;
+	return (node);
 }
 
-void	ft_addbottom(t_stack **stack, t_stack *new)
+void	ft_addbottom(t_stack **stack, t_stack *new_node)
 {
 	t_stack	*tmp;
 
 	if (*stack)
 	{
 		tmp = ft_last(*stack);
-		tmp->next = new;
+		tmp->next = new_node;
 	}
 	else
-		*stack = new;
+		*stack = new_node;
 }
-
-void	get_cost(t_stack **a, t_stack **b);

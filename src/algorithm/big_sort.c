@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   index.c                                            :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 21:33:22 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/18 00:08:12 by panther          ###   ########.fr       */
+/*   Created: 2024/01/24 16:35:15 by annabrag          #+#    #+#             */
+/*   Updated: 2024/01/24 17:22:15 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	get_idx(t_stack **stack)
-{
-	t_stack *tmp;
-	int	i;
-
-	tmp = *stack;
-	i = 0;
-	while (tmp)
-	{
-		tmp->idx = i;
-		tmp = tmp->next;
-		i++;
-	}
-}
-
-int	    get_target_idx();
+/*	Means that we sort nodes above five	*/
+void	sortBig(t_stack **a, t_stack **b);

@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
-/*   Updated: 2024/01/24 21:12:03 by annabrag         ###   ########.fr       */
+/*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
+/*   Updated: 2024/01/24 23:44:00 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int     ft_stackSize(t_stack *node)
-{
-    int size;
+/*	On laisse 5 valeurs dans la stack_a en pushant le reste dans la
+	stack_b pour pouvoir ensuite appeler 'sort_five'
+*/
+static void	way2five(t_stack **a, t_stack **b);
 
-    size = 0;
-    if (!node)
-        return (0);
-    while (node->next)
-    {
-        size++;
-        node = node->next;
-    }
-    return (size);
+static void	sort_three(t_stack **a, t_stack **b)
+{
+	
 }
 
-int     get_median(t_stack *node)
-{
-    return (ft_stackSize(node) / 2);
-}
+static void	sort_four(t_stack **a, t_stack **b);
 
-int     get_min(t_stack *node)
-{
-    
-}
+static void	sort_five(t_stack **a, t_stack **b);
+
+void	sortMini(t_stack **a, t_stack **b);

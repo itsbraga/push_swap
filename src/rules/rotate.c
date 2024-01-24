@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:18:15 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/17 23:39:36 by panther          ###   ########.fr       */
+/*   Updated: 2024/01/24 23:30:25 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    rotate(t_stack **stack)
+static void     rotate(t_stack **stack)
 {
     t_stack  *tmp;
     t_stack  *last;

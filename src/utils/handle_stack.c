@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handleStack.c                                      :+:      :+:    :+:   */
+/*   handle_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/18 00:00:18 by panther          ###   ########.fr       */
+/*   Updated: 2024/01/24 23:43:04 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_clear(t_stack **stack)
+static void	ft_clear(t_stack **stack)
 {
 	t_stack	*tmp;
 

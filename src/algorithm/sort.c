@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:31:20 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/17 23:42:06 by panther          ###   ########.fr       */
+/*   Updated: 2024/01/24 21:05:51 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,4 @@ bool	is_sorted(t_stack **stack)
 	return (true);
 }
 
-void	sort_three(t_stack **a, t_stack **b);
-
-void	sort_four(t_stack **a, t_stack **b);
-
-void	sort_five(t_stack **a, t_stack **b);
-
-void	sortBig(t_stack **a, t_stack **b);
+static void	sortBig(t_stack **a, t_stack **b);
