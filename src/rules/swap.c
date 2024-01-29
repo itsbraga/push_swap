@@ -6,15 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:57:48 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/24 23:29:52 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:28:14 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void    swap(t_stack **stack)
+static void    swap(t_stack **stack)
 {
-    t_list  *tmp;
+    t_stack  *tmp;
     
     if (!(*stack) || !((*stack)->next))
         return ;
@@ -27,21 +27,21 @@ void    swap(t_stack **stack)
 // swap the first two elem at the top of stack_a
 void    sa(t_stack **a)
 {
-    swap(*a);
+    swap(a);
     ft_printf("sa\n");
 }
 
 // swap the first two elem at the top of stack_b
 void    sb(t_stack **b)
 {
-    swap(*b);
+    swap(b);
     ft_printf("sb\n");
 }
 
 // swap the first two elem at the top of both stacks
 void    ss(t_stack **a, t_stack **b)
 {
-    swap(*a);
-    swap(*b);
+    swap(a);
+    swap(b);
     ft_printf("ss\n");
 }

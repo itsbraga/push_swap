@@ -6,29 +6,39 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/24 19:31:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:32:20 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static bool	is_sign(char *argv)
+static bool	is_sign(char c)
 {
 	int	i;
 
-	i = 0;
-	if (!argv)
-		return (false);
-	if (!(argv[i] == '-' || argv[i] == '+'))
+	i = 1;
+	if (!(c == '-' || c == '+'))
 		return (false);
 	return (true);
 }
+
+// static bool	is_space(char *argv)
+// {
+// 	int	i;
+
+// 	i = 1;
+// 	if (!argv)
+// 		return (false);
+// 	if (!(argv[i] >= 9 && argv[i] <= 13))
+// 		return (false);
+// 	return (true);
+// }
 
 static bool	arg_isdigit(char *argv)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (is_sign(argv[i]) && (argv[i + 1]))
 		i++;
 	while (argv[i] && ft_isdigit(argv[i]))
@@ -58,7 +68,18 @@ static bool	is_duplicate(char **argv)
 	return (false);
 }
 
-/*	Appelle toutes les fonctions precedentes pour un check global des
-	arguments passes en parametres
-*/
-bool	globalCheck(char **argv);
+bool	globalCheck(char **argv)
+{
+	int	i;
+
+	i = 1;
+	if (is_duplicate(argv) == true)
+		return (false);
+	while (argv[i])
+	{
+		if (arg_isdigit(argv[i]) == false)
+			return (false);
+		i++;
+	}
+	return (true);
+}

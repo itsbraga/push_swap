@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:49:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/17 23:10:54 by panther          ###   ########.fr       */
+/*   Updated: 2024/01/29 20:40:02 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack *init_a(int argc, char **argv)
+t_stack     *init_a(int argc, char **argv)
 {
     t_stack *a;
-    int     nb;
+    long     nb;
     int     i;
 
     a = NULL;
@@ -23,15 +23,19 @@ t_stack *init_a(int argc, char **argv)
     i = 1;
     while (i < argc)
     {
-        nb = ft_atoi(argv[i]);
-        if (nb > INT_MIN && nb < INT_MAX)
+        if (ft_strlen(argv[i]) > 11)
+            isError(&a, NULL);
+        nb = ft_atol(argv[i]);
+        if (nb >= INT_MIN && nb <= INT_MAX)
         {
             if (i == 1)
-                a = ft_stackNew(nb);
+                a = stackNew((int)nb);
             else
-                ft_addbottom(a, ft_stackNew(nb));
+                addBottom(&a, stackNew((int)nb));
         }
         else
-            is_error(a, NULL);
+            isError(&a, NULL);
+        i++;
     }
+    return (a);
 }

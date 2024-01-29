@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/24 23:29:37 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:59:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void     reverseRotate(t_stack **stack)
     t_stack  *last;
     t_stack  *before_last;
 
-    last = ft_last(*stack);
-    before_last = ft_beforelast(*stack);
+    last = getLast(*stack);
+    before_last = getBeforeLast(*stack);
     tmp = (*stack);
     (*stack) = last;
     (*stack)->next = tmp;

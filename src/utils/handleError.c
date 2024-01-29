@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
-/*   Updated: 2024/01/24 21:12:03 by annabrag         ###   ########.fr       */
+/*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
+/*   Updated: 2024/01/29 19:58:06 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int     ft_stackSize(t_stack *node)
+void	clear(t_stack **stack)
 {
-    int size;
+	t_stack	*tmp;
 
-    size = 0;
-    if (!node)
-        return (0);
-    while (node->next)
-    {
-        size++;
-        node = node->next;
-    }
-    return (size);
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }
 
-int     get_median(t_stack *node)
+void    isError(t_stack **a, t_stack **b)
 {
-    return (ft_stackSize(node) / 2);
-}
-
-int     get_min(t_stack *node)
-{
-    
+	if (a == NULL || *a != NULL)
+		clear(a);
+	if (b == NULL || *b != NULL)
+		clear(b);
+    write(2, "Error\n", 6);
+    exit(1);
 }

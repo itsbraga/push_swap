@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:04:08 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/24 21:16:31 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:59:29 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*ft_stackNew(int number)
+t_stack	*stackNew(int number)
 {
 	t_stack	*new;
 
@@ -29,31 +29,37 @@ t_stack	*ft_stackNew(int number)
 	return (new);
 }
 
-t_stack	*ft_last(t_stack *node)
+t_stack	*getLast(t_stack *node)
 {
-	if (!node)
+	t_stack *tmp;
+
+	tmp = node;
+	if (!tmp)
 		return (NULL);
-	while (node->next)
-		node = node->next;
-	return (node);
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
-t_stack	*ft_beforelast(t_stack *node)
+t_stack	*getBeforeLast(t_stack *node)
 {
-	if (!node)
+	t_stack *tmp;
+
+	tmp = node;
+	if (!tmp)
 		return (NULL);
-	while (node->next && node->next->next == NULL)
-		node = node->next;
-	return (node);
+	while (tmp->next->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
-void	ft_addbottom(t_stack **stack, t_stack *new_node)
+void	addBottom(t_stack **stack, t_stack *new_node)
 {
 	t_stack	*tmp;
 
 	if (*stack)
 	{
-		tmp = ft_last(*stack);
+		tmp = getLast(*stack);
 		tmp->next = new_node;
 	}
 	else

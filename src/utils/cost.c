@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:39:23 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/24 19:55:23 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:58:19 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	cost2move_a(t_stack **a)
 {
 	int	med;
 
-	med = get_median(a);
+	med = getMedian(*a);
+	return 0;
 	
 }
 

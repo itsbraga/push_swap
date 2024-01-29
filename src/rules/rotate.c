@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:18:15 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/24 23:30:25 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:59:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void     rotate(t_stack **stack)
 
     tmp = (*stack);
     (*stack) = (*stack)->next;
-    last = ft_last(*stack);
+    last = getLast(*stack);
     tmp->next = NULL;
     last->next = tmp;
 }

@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/01/24 17:29:02 by annabrag         ###   ########.fr        #
+#    Updated: 2024/01/29 21:08:32 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ LIBFT_PATH	=	libft
 CC		=	cc
 CFLAGS		=	-Wall -Wextra -Werror -I
 INC		=	include/
+DEBUG		=	-g -O0
 RM		=	rm -rf
 MAKEFLAGS	+=	--no-print-directory
 
@@ -60,18 +61,21 @@ RULES_FILES	=	swap.c \
 UTILS_DIR	=	utils/
 UTILS_FILES	=	init.c \
 			stack.c \
-			handle_stack.c \
+			handleError.c \
 			idx_n_target.c \
 			cost.c
 
-ALGORITHM_DIR	=	algorithm/
-ALGORITHM_FILES	=	small_sort.c \
-			big_sort.c \
+ALGO_DIR	=	algorithm/
+ALGO_FILES	=	sortMini.c \
+			sortBig.c \
 			sort.c \
-			sort_utils.c
+			sortUtils.c
 
 PARSING_DIR	=	parsing/
-PARSING_FILES	=	check_args.c
+PARSING_FILES	=	checkArgs.c
+
+MAIN_DIR	=	main/
+MAIN_FILES	=	push_swap.c
 
 # SRC_BONUS	=
 
@@ -82,8 +86,9 @@ SRC_DIR		=	src/
 
 SRC_NAMES	=	$(addprefix $(RULES_DIR), $(RULES_FILES)) \
 			$(addprefix $(UTILS_DIR), $(UTILS_FILES)) \
-			$(addprefix $(ALGORITHM_DIR), $(ALGORITHM_FILES)) \
-			$(addprefix $(PARSING_DIR), $(PARSING_FILES))
+			$(addprefix $(ALGO_DIR), $(ALGO_FILES)) \
+			$(addprefix $(PARSING_DIR), $(PARSING_FILES)) \
+			$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 
 OBJ_DIR		=	obj/
 
@@ -91,8 +96,9 @@ OBJ_NAMES	=	$(SRC_NAMES:.c=.o)
 
 OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(RULES_DIR) \
                 	$(UTILS_DIR) \
-			$(ALGORITHM_DIR) \
-			$(PARSING_DIR))
+			$(ALGO_DIR) \
+			$(PARSING_DIR) \
+			$(MAIN_DIR))
 
 OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 
@@ -100,21 +106,21 @@ OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 #################################### RULES ####################################
 
 $(PUSH_SWAP):	$(OBJ)
-			@printf "$(RESET)$(BOLD)$(CYAN)[push_swap]:\t$(RESET)"
-			@$(CC) $(CFLAGS) $(INC) $(OBJ_NAMES) libft.a -o $(PUSH_SWAP)
-			@printf "$(PINK) ./PUSH_SWAP ready to launch! $(RESET)🔥\n\n"
+			@printf "$(RESET)$(BOLD)$(PINK)[push_swap]:\t$(RESET)"
+			@$(CC) $(CFLAGS) $(INC) $(OBJ) libft.a -o $(PUSH_SWAP)
+			@printf "$(PINK) Your program is ready to launch! $(RESET)🔥\n\n"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 			@mkdir -p $(dir $@)
 			@printf "$(ITAL)$(YELLOW)Compiling: $(RESET)$(ITAL)$<\n"
-			@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+			@$(CC) $(DEBUG) $(CFLAGS) $(INC) -c $< -o $@
 
 build:
 		@make $(MAKEFLAGS) -C $(LIBFT_PATH)
 		@cp $(LIBFT_PATH)/libft.a .
 		@make all
 
-all: 	$(PUSH_SWAP)
+all:		$(PUSH_SWAP)
 
 clean:
 		@$(RM) $(OBJ_DIR)
@@ -126,7 +132,7 @@ fclean:	clean
 		@$(RM) $(LIBFT_PATH)/libft.a
 		@$(RM) libft.a
 		@find . -name ".DS_Store" -delete
-		@printf "$(BOLD)$(PURPLE)[LIBFT]: $(RESET)$(PURPLE)exec. files $(RESET)\t\t=> CLEANED! 🦋\n\n"
+		@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED! 🦋\n\n"
 		@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]: $(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED! 🧮\n\n"
 
 re:	fclean build all
@@ -142,7 +148,7 @@ norm:
 # $(BONUS_PS):	$(OBJ_BONUS)
 # 			@printf "$(RESET)$(BOLD)$(CYAN)[push_swap BONUS]:\t$(RESET)"
 # 			@$(CC) $(CFLAGS) $(INC) $(OBJ_BONUS) libft.a -o $(BONUS_PS)
-# 			@printf "$(PINK) ./CHECKER ready ! $(RESET)🔎\n\n"
+# 			@printf "$(CYAN) ./CHECKER ready ! $(RESET)🔎\n\n"
 
 # bonus:
 # 		@make $(MAKEFLAGS) -C $(LIBFT_PATH)
