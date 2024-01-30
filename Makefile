@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/01/29 21:08:32 by annabrag         ###   ########.fr        #
+#    Updated: 2024/01/30 19:46:02 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,7 @@ OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 #################################### RULES ####################################
 
 $(PUSH_SWAP):	$(OBJ)
-			@printf "$(RESET)$(BOLD)$(PINK)[push_swap]:\t$(RESET)"
+			@printf "\n$(RESET)$(BOLD)$(PINK)[push_swap]:\t$(RESET)"
 			@$(CC) $(CFLAGS) $(INC) $(OBJ) libft.a -o $(PUSH_SWAP)
 			@printf "$(PINK) Your program is ready to launch! $(RESET)🔥\n\n"
 
@@ -127,20 +127,20 @@ clean:
 		@make clean -C $(LIBFT_PATH)
 		@printf "$(RESET)$(BOLD)$(CYAN)[push_swap]: $(RESET)$(CYAN)object files $(RESET)\t=> CLEANED! 🕹️\n\n"
 
-fclean:	clean
-		@$(RM) $(PUSH_SWAP) $(BONUS_PS)
-		@$(RM) $(LIBFT_PATH)/libft.a
-		@$(RM) libft.a
-		@find . -name ".DS_Store" -delete
-		@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED! 🦋\n\n"
-		@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]: $(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED! 🧮\n\n"
+fclean:		clean
+			@$(RM) $(PUSH_SWAP) $(BONUS_PS)
+			@$(RM) $(LIBFT_PATH)/libft.a
+			@$(RM) libft.a
+			@find . -name ".DS_Store" -delete
+			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
+			@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]: $(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED! 🧮\n\n"
 
-re:	fclean build all
-		@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"
+re:		fclean build all
+			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"
 
 norm:
-		@clear
-		@norminette $(SRC_DIR) $(INC) $(LIBFT_PATH) | grep -v Norme -B1 || true
+			@clear
+			@norminette $(SRC_DIR) $(INC) $(LIBFT_PATH) | grep -v Norme -B1 || true
 
 
 ################################### BONUS ###################################
@@ -158,4 +158,4 @@ norm:
 # allbonus:	$(BONUS_PS)
 
 
-.PHONY:	build all clean fclean re norm
+.PHONY:		build all clean fclean re norm

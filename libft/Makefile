@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 11:07:10 by annabrag          #+#    #+#              #
-#    Updated: 2024/01/29 20:29:26 by annabrag         ###   ########.fr        #
+#    Updated: 2024/01/30 19:46:13 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -207,12 +207,12 @@ san:		$(FSANITIZE)
 
 clean:
 			@$(RM) $(OBJ_DIR)
-			@printf "$(BOLD)$(PINK)[LIBFT & Co.]: $(RESET)$(PINK)object files $(RESET)\t=> CLEANED! 🐞\n\n"
+			@printf "$(BOLD)$(PINK)[LIBFT & Co.]: $(RESET)$(PINK)object files $(RESET)\t=> CLEANED!\n\n"
 
 fclean: 	clean
 			@$(RM) $(NAME)
 			@find . -name ".DS_Store" -delete
-			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED! 🦋\n\n"
+			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
 
 re:		fclean all
 			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/29 19:59:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:58:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void     reverseRotate(t_stack **stack)
 void    rra(t_stack **a)
 {
     reverseRotate(a);
-    ft_printf("rra\n");
+    ft_printf(YELLOW "rra\n" RESET);
 }
 
 // rotates all the elems of stack_b from one position downwards
@@ -39,7 +39,7 @@ void    rra(t_stack **a)
 void    rrb(t_stack **b)
 {
     reverseRotate(b);
-    ft_printf("rrb\n");
+    ft_printf(YELLOW "rrb\n" RESET);
 }
 
 // rotates all the elems of both stacks from one position downwards
@@ -48,5 +48,5 @@ void    rrr(t_stack **a, t_stack **b)
 {
     reverseRotate(a);
     reverseRotate(b);
-    ft_printf("rrr\n");
+    ft_printf(YELLOW "rrr\n" RESET);
 }

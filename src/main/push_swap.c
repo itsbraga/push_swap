@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:28:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/29 20:43:22 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/30 18:54:53 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	push_swap(t_stack **a, t_stack **b)
 	if (a_size == 2 && !isSorted(*a))
 		sa(a);
 	if ((a_size >= 3 && a_size <= 5) && !isSorted(*a))
-		sortMini(a);
+		sortMini(a, b);
 	else
 		sortBig(a, b);
 }
@@ -38,7 +38,7 @@ static void    printStack(t_stack *node, char c)
     }
     write(1, "\n-\n", 3);
     write(1, &c, 1);
-    write(1, "\n", 1);
+    write(1, "\n\n", 2);
 }
 
 int	main(int argc, char **argv)
@@ -46,14 +46,19 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	
-	if (argc < 2)
+	if (argc == 1)
+	{
+		ft_printf(YELLOW BOLD "Oops! No values to sort.");
+		ft_printf(YELLOW BOLD " Please, type some." RESET);
+	}
+	if (argc == 2)
 		return (0);
 	if (globalCheck(argv) == false)
 		isError(NULL, NULL);
 	b = NULL;
 	a = init_a(argc, argv);
-	printStack(a, 'a');
 	push_swap(&a, &b);
+	ft_printf(PINK "STACK AFTER PUSH_SWAP SORT\n");
 	printStack(a, 'a');
 	clear(&a);
 	clear(&b);

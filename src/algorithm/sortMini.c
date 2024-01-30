@@ -6,16 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/29 21:05:04 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/30 18:52:33 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-/*	On laisse 5 valeurs dans la stack_a en pushant le reste dans la
-	stack_b pour pouvoir ensuite appeler 'sort_five'
-*/
-// static void	way2five(t_stack **a, t_stack **b);
 
 static void	sortThree(t_stack **stack)
 {
@@ -26,7 +21,7 @@ static void	sortThree(t_stack **stack)
 	a = (*stack)->value;
 	b = (*stack)->next->value;
 	c = (*stack)->next->next->value;
-	if ((a < b) && (b < c) && (a < c))
+	if (isSorted(*stack) == true)
 		return ;
 	else if ((a < b) && (b > c) && (a < c))
 	{
@@ -48,10 +43,45 @@ static void	sortThree(t_stack **stack)
 
 static void	sortFour(t_stack **a, t_stack **b)
 {
-	
+	int	min;
+	int	dist;
+
+	min = findMin(*a);
+	dist = getDistanceFromMin(a, min);
+	if (isSorted(*a) == true)
+		return ;
+	if (dist <= 2 && dist != 0)
+		ra(a);
+	if (dist == 2)
+		ra(a);
+	if (dist == 3)
+		rra(a);
+	pb(a, b);
+	sortThree(a);
+	pa(b, a);
 }
 
-// static void	sortFive(t_stack **a, t_stack **b);
+static void	sortFive(t_stack **a, t_stack **b)
+{
+	int	min;
+	int	dist;
+
+	min = findMin(*a);
+	dist = getDistanceFromMin(a, min);
+	if (dist <= 2 && dist != 0)
+		ra(a);
+	if (dist == 2)
+		ra(a);
+	if (dist == 3 || dist == 4)
+		rra(a);
+	if (dist == 3)
+		rra(a);
+	if (isSorted(*a) == true)
+		return ;
+	pb(a, b);
+	sortFour(a, b);
+	pa(b, a);
+}
 
 void	sortMini(t_stack **a, t_stack **b)
 {
@@ -60,6 +90,8 @@ void	sortMini(t_stack **a, t_stack **b)
 	size = stackSize(*a);
 	if (size == 3)
 		sortThree(a);
-	else if (size == 4)
+	if (size == 4)
 		sortFour(a, b);
+	if (size == 5)
+		sortFive(a, b);
 }

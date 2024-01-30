@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:57:48 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/29 17:28:14 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:58:51 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ static void    swap(t_stack **stack)
 void    sa(t_stack **a)
 {
     swap(a);
-    ft_printf("sa\n");
+    ft_printf(PINK "sa\n" RESET);
 }
 
 // swap the first two elem at the top of stack_b
 void    sb(t_stack **b)
 {
     swap(b);
-    ft_printf("sb\n");
+    ft_printf(PINK "sb\n" RESET);
 }
 
 // swap the first two elem at the top of both stacks
@@ -43,5 +43,5 @@ void    ss(t_stack **a, t_stack **b)
 {
     swap(a);
     swap(b);
-    ft_printf("ss\n");
+    ft_printf(PINK "ss\n" RESET);
 }
