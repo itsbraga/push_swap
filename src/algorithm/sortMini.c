@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sortMini.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/30 18:52:33 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:37:32 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	sortThree(t_stack **stack)
 	int	b;
 	int	c;
 
-	a = (*stack)->value;
-	b = (*stack)->next->value;
-	c = (*stack)->next->next->value;
+	a = (*stack)->content;
+	b = (*stack)->next->content;
+	c = (*stack)->next->next->content;
 	if (isSorted(*stack) == true)
 		return ;
 	else if ((a < b) && (b > c) && (a < c))
@@ -41,47 +41,47 @@ static void	sortThree(t_stack **stack)
 	}
 }
 
-static void	sortFour(t_stack **a, t_stack **b)
-{
-	int	min;
-	int	dist;
+// static void	sortFour(t_stack **a, t_stack **b)
+// {
+// 	t_stack	*min;
+// 	// int	dist;
 
-	min = findMin(*a);
-	dist = getDistanceFromMin(a, min);
-	if (isSorted(*a) == true)
-		return ;
-	if (dist <= 2 && dist != 0)
-		ra(a);
-	if (dist == 2)
-		ra(a);
-	if (dist == 3)
-		rra(a);
-	pb(a, b);
-	sortThree(a);
-	pa(b, a);
-}
+// 	min = findMin(*a);
+// 	// dist = getDistanceFromMin(a, min);
+// 	if (isSorted(*a) == true)
+// 		return ;
+// 	// if (dist <= 2 && dist != 0)
+// 	// 	ra(a);
+// 	// if (dist == 2)
+// 	// 	ra(a);
+// 	// if (dist == 3)
+// 	// 	rra(a);
+// 	pb(a, b);
+// 	sortThree(a);
+// 	pa(b, a);
+// }
 
-static void	sortFive(t_stack **a, t_stack **b)
-{
-	int	min;
-	int	dist;
+// static void	sortFive(t_stack **a, t_stack **b)
+// {
+// 	t_stack	*min;
+// 	// int	dist;
 
-	min = findMin(*a);
-	dist = getDistanceFromMin(a, min);
-	if (dist <= 2 && dist != 0)
-		ra(a);
-	if (dist == 2)
-		ra(a);
-	if (dist == 3 || dist == 4)
-		rra(a);
-	if (dist == 3)
-		rra(a);
-	if (isSorted(*a) == true)
-		return ;
-	pb(a, b);
-	sortFour(a, b);
-	pa(b, a);
-}
+// 	min = findMin(*a);
+// 	// dist = getDistanceFromMin(a, min);
+// 	if (isSorted(*a) == true)
+// 		return ;
+// 	// if (dist <= 2 && dist != 0)
+// 	// 	ra(a);
+// 	// if (dist == 2)
+// 	// 	ra(a);
+// 	// if (dist == 3 || dist == 4)
+// 	// 	rra(a);
+// 	// if (dist == 3)
+// 	// 	rra(a);
+// 	pb(a, b);
+// 	sortFour(a, b);
+// 	pa(b, a);
+// }
 
 void	sortMini(t_stack **a, t_stack **b)
 {
@@ -90,8 +90,9 @@ void	sortMini(t_stack **a, t_stack **b)
 	size = stackSize(*a);
 	if (size == 3)
 		sortThree(a);
-	if (size == 4)
-		sortFour(a, b);
-	if (size == 5)
-		sortFive(a, b);
+	(void)b;
+	// if (size == 4)
+	// 	sortFour(a, b);
+	// if (size == 5)
+	// 	sortFive(a, b);
 }

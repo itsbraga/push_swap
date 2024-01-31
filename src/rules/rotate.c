@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:18:15 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/30 17:58:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:33:50 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void     rotate(t_stack **stack)
     t_stack  *tmp;
     t_stack  *last;
 
+    if (!(*stack) || !((*stack)->next) || !((*stack)->next->next))
+        return ;
     tmp = (*stack);
     (*stack) = (*stack)->next;
     last = getLast(*stack);

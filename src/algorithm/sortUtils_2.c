@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortBig.c                                          :+:      :+:    :+:   */
+/*   sortUtils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 16:35:15 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/30 17:43:00 by annabrag         ###   ########.fr       */
+/*   Created: 2024/01/15 21:31:20 by art3mis           #+#    #+#             */
+/*   Updated: 2024/01/31 23:04:08 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*	On laisse 5 valeurs dans la stack_a en pushant le reste dans la
-	stack_b pour pouvoir ensuite appeler 'sort_five'
-*/
-// static void	way2five(t_stack **a, t_stack **b);
-
-/*	Means that we sort nodes above five	*/
-void	sortBig(t_stack **a, t_stack **b)
+bool	isSorted(t_stack *node)
 {
-	(void) a;
-	(void) b;
+	t_stack	*tmp;
+	
+	tmp = node;
+	if (!tmp)
+		return (false);
+	while (tmp->next != NULL)
+	{
+		if (tmp->content > tmp->next->content)
+			return (false);
+		tmp = tmp->next;
+	}
+	return (true);
 }

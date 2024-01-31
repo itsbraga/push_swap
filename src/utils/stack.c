@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:04:08 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/29 19:59:29 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:27:40 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*stackNew(int number)
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
-	new->value = number;
+	new->content = number;
 	new->idx = 0;
 	new->final_idx = -1;
 	new->cost_a = -1;

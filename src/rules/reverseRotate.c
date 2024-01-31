@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverseRotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/30 17:58:16 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:34:07 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void     reverseRotate(t_stack **stack)
     t_stack  *last;
     t_stack  *before_last;
 
+    if (!(*stack) || !((*stack)->next) || !((*stack)->next->next))
+        return ;
     last = getLast(*stack);
     before_last = getBeforeLast(*stack);
     tmp = (*stack);

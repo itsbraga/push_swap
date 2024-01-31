@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   checkArgs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/29 17:32:20 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:39:52 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static bool	is_sign(char c)
+static bool	isSign(char c)
 {
-	int	i;
-
-	i = 1;
 	if (!(c == '-' || c == '+'))
 		return (false);
 	return (true);
 }
 
-// static bool	is_space(char *argv)
-// {
-// 	int	i;
+static bool	isSpace(char *argv)
+{
+	int	i;
 
-// 	i = 1;
-// 	if (!argv)
-// 		return (false);
-// 	if (!(argv[i] >= 9 && argv[i] <= 13))
-// 		return (false);
-// 	return (true);
-// }
+	i = 0;
+	if (!(argv[i] == 32 || (argv[i] >= 9 && argv[i] <= 13)))
+		return (false);
+	return (true);
+}
 
-static bool	arg_isdigit(char *argv)
+static bool	IsOnlyDigit(char *argv)
 {
 	int	i;
 
 	i = 1;
-	if (is_sign(argv[i]) && (argv[i + 1]))
+	if (isSign(argv[i]) && (argv[i + 1]))
+		i++;
+	if (isSpace(&argv[i]) && (argv[i + 1]))
 		i++;
 	while (argv[i] && ft_isdigit(argv[i]))
 		i++;
@@ -48,7 +45,7 @@ static bool	arg_isdigit(char *argv)
 	return (true);
 }
 
-static bool	is_duplicate(char **argv)
+bool	haveDuplicate(char **argv)
 {
 	int	i;
 	int	j;
@@ -68,16 +65,16 @@ static bool	is_duplicate(char **argv)
 	return (false);
 }
 
-bool	globalCheck(char **argv)
+bool	globalCheckIsSuccess(char **argv)
 {
 	int	i;
 
 	i = 1;
-	if (is_duplicate(argv) == true)
+	if (haveDuplicate(argv) == true)
 		return (false);
 	while (argv[i])
 	{
-		if (arg_isdigit(argv[i]) == false)
+		if (IsOnlyDigit(argv[i]) == false)
 			return (false);
 		i++;
 	}

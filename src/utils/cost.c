@@ -3,42 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:39:23 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/29 19:58:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:36:49 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*	Par rapport a la mediane, quel est le mouvement le moins couteux
-	a bouger dans a ?
-	Les mouvements au-dessus de la mediane seront positifs et entraineront
-	un mouvement de type vers le haut (ex: sa, ra).
-	Les mouvements en-dessous de la mediane seront negatifs et entraineront
-	un mouvement de type vers le bas (ex: rra).
-*/
-int	cost2move_a(t_stack **a)
+void	getCost2move(t_stack **a, t_stack **b)
 {
-	int	med;
+	t_stack	*tmp_b;
+	int		size_a;
+	int		size_b;
 
-	med = getMedian(*a);
-	return 0;
-	
+	tmp_b = *b;
+	size_a = stackSize(*a);
+	size_b = stackSize(tmp_b);
+	while (tmp_b)
+	{
+		tmp_b->cost_b = tmp_b->idx;
+		if (tmp_b->idx > getMedian(*b))
+			tmp_b->cost_b = (size_b - tmp_b->idx) * -1;
+		tmp_b->cost_a = tmp_b->target;
+		if (tmp_b->target > getMedian(*a))
+			tmp_b->cost_a = (size_a - tmp_b->target) * -1;
+		tmp_b = tmp_b->next;
+	}
 }
-
-/*	Par rapport a la mediane, quel est le mouvement le moins couteux
-	a bouger dans b ?
-	Les mouvements au-dessus de la mediane seront positifs et entraineront
-	un mouvement de type vers le haut (ex: sb, rb).
-	Les mouvements en-dessous de la mediane seront negatifs et entraineront
-	un mouvement de type vers le bas (ex: rrb).
-*/
-int	cost2move_b(t_stack **b);
-
-/*	Par rapport a la mediane, quelle est la paire de 'value' dans a et b
-	les moins couteux a deplacer, toujours par rapport a la mediane ?
-	autrement dit, il s'agit du cas : (cost_a + cost_b)
-*/
-int	cost2move_both(t_stack **a, t_stack **b);

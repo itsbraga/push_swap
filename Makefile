@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
+#    By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/01/30 19:46:02 by annabrag         ###   ########.fr        #
+#    Updated: 2024/02/01 00:55:35 by art3mis          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,23 +59,21 @@ RULES_FILES	=	swap.c \
 			push.c
 
 UTILS_DIR	=	utils/
-UTILS_FILES	=	init.c \
-			stack.c \
+UTILS_FILES	=	stack.c \
 			handleError.c \
 			idx_n_target.c \
 			cost.c
 
 ALGO_DIR	=	algorithm/
 ALGO_FILES	=	sortMini.c \
-			sortBig.c \
 			sort.c \
-			sortUtils.c
-
-PARSING_DIR	=	parsing/
-PARSING_FILES	=	checkArgs.c
+			sortUtils.c \
+			sortUtils_2.c
 
 MAIN_DIR	=	main/
-MAIN_FILES	=	push_swap.c
+MAIN_FILES	=	parse_n_init.c \
+			push_swap.c \
+			checkArgs.c	
 
 # SRC_BONUS	=
 
@@ -87,7 +85,6 @@ SRC_DIR		=	src/
 SRC_NAMES	=	$(addprefix $(RULES_DIR), $(RULES_FILES)) \
 			$(addprefix $(UTILS_DIR), $(UTILS_FILES)) \
 			$(addprefix $(ALGO_DIR), $(ALGO_FILES)) \
-			$(addprefix $(PARSING_DIR), $(PARSING_FILES)) \
 			$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 
 OBJ_DIR		=	obj/
@@ -97,7 +94,6 @@ OBJ_NAMES	=	$(SRC_NAMES:.c=.o)
 OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(RULES_DIR) \
                 	$(UTILS_DIR) \
 			$(ALGO_DIR) \
-			$(PARSING_DIR) \
 			$(MAIN_DIR))
 
 OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
@@ -108,7 +104,7 @@ OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 $(PUSH_SWAP):	$(OBJ)
 			@printf "\n$(RESET)$(BOLD)$(PINK)[push_swap]:\t$(RESET)"
 			@$(CC) $(CFLAGS) $(INC) $(OBJ) libft.a -o $(PUSH_SWAP)
-			@printf "$(PINK) Your program is ready to launch! $(RESET)🔥\n\n"
+			@printf "$(PINK) Your program is ready to launch! $(RESET) ฅ^•ﻌ•^ฅ\n\n"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 			@mkdir -p $(dir $@)
@@ -119,13 +115,35 @@ build:
 		@make $(MAKEFLAGS) -C $(LIBFT_PATH)
 		@cp $(LIBFT_PATH)/libft.a .
 		@make all
+		@printf "$(BLUE)		    __  __              __  __                   __\n"
+		@printf "$(BLUE)		   / / / /__  __  __   / /_/ /_  ___  ________  / /\n"
+		@printf "$(BLUE)		  / /_/ / _ \/ / / /  / __/ __ \/ _ \/ ___/ _ \/ / \n"
+		@printf "$(BLUE)		 / __  /  __/ /_/ /  / /_/ / / /  __/ /  /  __/_/  \n"
+		@printf "$(BLUE)		/_/ /_/\___/\__, /   \__/_/ /_/\___/_/   \___(_)   \n"
+		@printf "$(BLUE)			   /____/                                  \n"
+		@printf "\n\n"
+		@printf "$(PINK) 			░░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄\n"
+		@printf "$(PINK) 			░░░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄\n"
+		@printf "$(PINK) 			░░░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█\n"
+		@printf "$(PINK) 			░░░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░█\n"
+		@printf "$(PINK) 			░░░▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░█\n"
+		@printf "$(PINK) 			░░█▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒█\n"
+		@printf "$(PINK) 			░░█▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█\n"
+		@printf "$(PINK) 			░░░█▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█\n"
+		@printf "$(PINK) 			░░░░█░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█\n"
+		@printf "$(PINK) 			░░░░░█░░██░░▀█▄▄▄█▄▄█▄████░█\n"
+		@printf "$(PINK) 			░░░░░░█░░░▀▀▄░█░░░█░███████░█\n"
+		@printf "$(PINK) 			░░░░░░░▀▄░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█\n"
+		@printf "$(PINK) 			░░░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█\n"
+		@printf "$(PINK) 			░░░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█\n"
+		@printf "$(PINK) 			░░░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█\n"
 
 all:		$(PUSH_SWAP)
 
 clean:
 		@$(RM) $(OBJ_DIR)
 		@make clean -C $(LIBFT_PATH)
-		@printf "$(RESET)$(BOLD)$(CYAN)[push_swap]: $(RESET)$(CYAN)object files $(RESET)\t=> CLEANED! 🕹️\n\n"
+		@printf "$(RESET)$(BOLD)$(CYAN)[push_swap]: $(RESET)$(CYAN)object files $(RESET)\t=> CLEANED!\n\n"
 
 fclean:		clean
 			@$(RM) $(PUSH_SWAP) $(BONUS_PS)
@@ -133,7 +151,7 @@ fclean:		clean
 			@$(RM) libft.a
 			@find . -name ".DS_Store" -delete
 			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
-			@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]: $(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED! 🧮\n\n"
+			@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]: $(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
 
 re:		fclean build all
 			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"

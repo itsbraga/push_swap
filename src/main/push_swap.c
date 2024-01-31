@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:28:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/30 18:54:53 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:38:39 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static void	push_swap(t_stack **a, t_stack **b)
 {
-	int	a_size;
+	int	size_a;
 
-	a_size = stackSize(*a);
-	if (a_size == 2 && !isSorted(*a))
+	size_a = stackSize(*a);
+	if (size_a == 2 && !isSorted(*a))
 		sa(a);
-	if ((a_size >= 3 && a_size <= 5) && !isSorted(*a))
+	if ((size_a >= 3 && size_a <= 5) && !isSorted(*a))
 		sortMini(a, b);
 	else
-		sortBig(a, b);
+		sort(a, b);
 }
 
 static void    printStack(t_stack *node, char c)
@@ -32,7 +32,7 @@ static void    printStack(t_stack *node, char c)
     tmp = node;
     while (tmp != NULL)
     {
-        ft_putnbr_fd(tmp->value, 1);
+        ft_putnbr_fd(tmp->content, 1);
         ft_putendl_fd("", 1);
         tmp = tmp->next;
     }
@@ -53,10 +53,10 @@ int	main(int argc, char **argv)
 	}
 	if (argc == 2)
 		return (0);
-	if (globalCheck(argv) == false)
+	if (globalCheckIsSuccess(argv) == false)
 		isError(NULL, NULL);
 	b = NULL;
-	a = init_a(argc, argv);
+	a = ParseAndFill(argc, *argv);
 	push_swap(&a, &b);
 	ft_printf(PINK "STACK AFTER PUSH_SWAP SORT\n");
 	printStack(a, 'a');

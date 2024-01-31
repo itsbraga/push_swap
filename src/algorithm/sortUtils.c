@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sortUtils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
-/*   Updated: 2024/01/30 18:49:46 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/01/31 23:04:37 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int     stackSize(t_stack *node)
 {
     int size;
 
-    size = 0;
     if (!node)
         return (0);
+    size = 0;
     while (node)
     {
         size++;
@@ -31,36 +31,59 @@ int     getMedian(t_stack *node)
 {
     return (stackSize(node) / 2);
 }
-
-int     findMin(t_stack *node)
+/*  Find the elem with the smallest content. */
+t_stack     *findMin(t_stack *node)
 {
-    int min;
+    t_stack *min;
+    t_stack *tmp;
 
     if (!node)
-        return (0);
-    min = node->value;
-    while (node)
+        return (NULL);
+    min = node;
+    tmp = node;
+    while (tmp)
     {
-        if (node->value < min)
-            min = node->value;
-        node = node->next;
+        if (tmp->content < min->content)
+            min = tmp;
+        tmp = tmp->next;
     }
     return (min);
 }
 
-int     getDistanceFromMin(t_stack **a, int min)
+/*  Find the elem with the highest content. */
+t_stack     *findMax(t_stack *node)
 {
+    t_stack *max;
     t_stack *tmp;
-    int     dist;
-    
-    tmp = *a;
-    dist = 0;
+
+    if (!node)
+        return (NULL);
+    max = node;
+    tmp = node;
     while (tmp)
     {
-        if (tmp->value == min)
-            break ;
-        dist++;
+        if (tmp->content > max->content)
+            max = tmp;
         tmp = tmp->next;
     }
-    return (dist);
+    return (max);
 }
+
+// int     getDistanceFromMin(t_stack **a, int min)
+// {
+//     t_stack *tmp;
+//     int     dist;
+    
+//     if (!a)
+//         return (0);
+//     tmp = *a;
+//     dist = 0;
+//     while (tmp)
+//     {
+//         if (tmp->content == min)
+//             break ;
+//         dist++;
+//         tmp = tmp->next;
+//     }
+//     return (dist);
+// }
