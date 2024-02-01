@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sortUtils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
-/*   Updated: 2024/01/31 23:04:37 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/01 23:30:25 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,26 @@ int     getMedian(t_stack *node)
 /*  Find the elem with the smallest content. */
 t_stack     *findMin(t_stack *node)
 {
-    t_stack *min;
-    t_stack *tmp;
+    int     tmp;
+    int     min;
+    t_stack *minValue;
 
     if (!node)
         return (NULL);
-    min = node;
-    tmp = node;
-    while (tmp)
+    tmp = 0;
+    min = INT_MAX;
+    minValue = NULL;
+    while (node)
     {
-        if (tmp->content < min->content)
-            min = tmp;
-        tmp = tmp->next;
+        if ((node->pos == -1) && (!tmp || node->content < min))
+        {
+            min = node->content;
+            minValue = node;
+            tmp = 1;
+        }
+        node = node->next;
     }
-    return (min);
+    return (minValue);
 }
 
 /*  Find the elem with the highest content. */
@@ -69,21 +75,21 @@ t_stack     *findMax(t_stack *node)
     return (max);
 }
 
-// int     getDistanceFromMin(t_stack **a, int min)
-// {
-//     t_stack *tmp;
-//     int     dist;
+int     getDistanceFromMin(t_stack **a, int min)
+{
+    t_stack *tmp;
+    int     dist;
     
-//     if (!a)
-//         return (0);
-//     tmp = *a;
-//     dist = 0;
-//     while (tmp)
-//     {
-//         if (tmp->content == min)
-//             break ;
-//         dist++;
-//         tmp = tmp->next;
-//     }
-//     return (dist);
-// }
+    if (!a)
+        return (0);
+    tmp = *a;
+    dist = 0;
+    while (tmp)
+    {
+        if (tmp->content == min)
+            break ;
+        dist++;
+        tmp = tmp->next;
+    }
+    return (dist);
+}

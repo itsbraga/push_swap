@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:28:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/01 00:38:39 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/01 23:48:15 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,23 @@ static void	push_swap(t_stack **a, t_stack **b)
 		sort(a, b);
 }
 
-static void    printStack(t_stack *node, char c)
+static void    showStack(t_stack *node, char c)
 {
-    t_stack *tmp;
+    t_stack		*tmp;
+    unsigned int	idx;
 
+    if (!node)
+	return ;
     tmp = node;
-    while (tmp != NULL)
+    idx = 0;
+    write(1, "\n", 1);
+    while (tmp)
     {
-        ft_putnbr_fd(tmp->content, 1);
-        ft_putendl_fd("", 1);
+	ft_printf("Stack (%d) ➔	  %d\n", idx++, tmp->content);
         tmp = tmp->next;
     }
-    write(1, "\n-\n", 3);
-    write(1, &c, 1);
-    write(1, "\n\n", 2);
+    ft_printf("		  —\n");
+    ft_printf("		  %c\n\n", c);
 }
 
 int	main(int argc, char **argv)
@@ -46,21 +49,22 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	
-	if (argc == 1)
+	if (argc < 2)
 	{
-		ft_printf(YELLOW BOLD "Oops! No values to sort.");
-		ft_printf(YELLOW BOLD " Please, type some." RESET);
+		ft_printf(YELLOW BOLD "Too few arguments to use ./push_swap\n");
+		return (EXIT_FAILURE);
 	}
-	if (argc == 2)
-		return (0);
+	a = ParseAndFill(argv);
+	if (!a)
+		isError(NULL, NULL);
 	if (globalCheckIsSuccess(argv) == false)
 		isError(NULL, NULL);
 	b = NULL;
-	a = ParseAndFill(argc, *argv);
+	setPos(&a);
 	push_swap(&a, &b);
-	ft_printf(PINK "STACK AFTER PUSH_SWAP SORT\n");
-	printStack(a, 'a');
+	showStack(a, 'A');
+	showStack(b, 'B');
 	clear(&a);
 	clear(&b);
-	return (0);
+	return (EXIT_SUCCESS);
 }

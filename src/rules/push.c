@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:16:32 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/31 22:32:12 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/01 23:49:03 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ static void    push(t_stack **from, t_stack **to)
 }
 
 // take the first elem at the top of stack_b and push it to stack_a
-void    pa(t_stack **b, t_stack **a)
+void    pa(t_stack **from_b, t_stack **to_a)
 {
-	push(a, b);
+	push(from_b, to_a);
 	ft_printf(RED "pa\n" RESET);
 }
 
 // take the first elem at the top of stack_a and push it to stack_b
-void    pb(t_stack **a, t_stack **b)
+void    pb(t_stack **from_a, t_stack **to_b)
 {
-	push(b, a);
+	push(from_a, to_b);
 	ft_printf(RED "pb\n" RESET);
 }

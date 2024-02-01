@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:04:08 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/31 22:27:40 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/01 22:46:23 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ t_stack	*stackNew(int number)
 	if (!new)
 		return (NULL);
 	new->content = number;
-	new->idx = 0;
-	new->final_idx = -1;
-	new->cost_a = -1;
-	new->cost_b = -1;
-	new->target = -1;
+	new->pos = -1;
+	new->cost_a = 0;
+	new->cost_b = 0;
 	new->next = NULL;
 	return (new);
 }

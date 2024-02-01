@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/01 00:36:15 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/01 23:50:06 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ typedef enum
     true
 }       bool;
 
+// idx est la ou est situe la valeur dans la stack
+// pos est la ou doit etre situee la valeur apres le tri
 typedef struct s_stack
 {
     int                 content;
     int                 idx;
-    int                 final_idx;
+    int                 pos;
     int                 target;
     int                 cost_a;
     int                 cost_b;
@@ -54,11 +56,11 @@ void        rra(t_stack **a);
 void        rrb(t_stack **b);
 void        rrr(t_stack **a, t_stack **b);
 
-void        pa(t_stack **b, t_stack **a);
-void        pb(t_stack **a, t_stack **b);
+void        pa(t_stack **from_b, t_stack **to_a);
+void        pb(t_stack **from_a, t_stack **to_b);
 
 /*  Costs   */
-void        getCost2move(t_stack **a, t_stack **b);
+void        setCost2move(t_stack **a, t_stack **b);
 
 /*  Algorithm   */
 // void     way2five(t_stack **a, t_stack **b);
@@ -83,15 +85,15 @@ t_stack     *findMin(t_stack *node);
 t_stack     *findMax(t_stack *node);
 int         getDistanceFromMin(t_stack **a, int min);
 
-void        getIdx(t_stack **stack);
-void        getFinalIdx(t_stack **stack);
-int         getTarget(t_stack *node_b, t_stack *node_a);
-int         getTargetIdx(t_stack **b, t_stack **a, int target);
+void        setIdx(t_stack **stack);
+void        setPos(t_stack **stack);
+void        getTarget(t_stack **b, t_stack **a);
+int         setTargetIdx(t_stack **a, int pos, int targetPos, int targetIdx);
 
 /*  Check args and parse    */
 bool        haveDuplicate(char **argv);
 bool        globalCheckIsSuccess(char **argv);
 
-t_stack     *ParseAndFill(int argc, char *argv);
+t_stack     *ParseAndFill(char **argv);
 
 #endif

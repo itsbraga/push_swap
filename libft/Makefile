@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+         #
+#    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 11:07:10 by annabrag          #+#    #+#              #
-#    Updated: 2024/01/31 23:44:35 by art3mis          ###   ########.fr        #
+#    Updated: 2024/02/01 23:52:43 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -207,7 +207,7 @@ san:		$(FSANITIZE)
 
 clean:
 			@$(RM) $(OBJ_DIR)
-			@printf "$(BOLD)$(PINK)[LIBFT & Co.]: $(RESET)$(PINK)object files $(RESET)\t=> CLEANED!\n\n"
+			@printf "$(BOLD)$(PINK)[LIBFT & Co.]:\t$(RESET)$(PINK)object files $(RESET)\t=> CLEANED!\n\n"
 
 fclean: 	clean
 			@$(RM) $(NAME)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:39:23 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/01 00:36:49 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/01 23:49:59 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	getCost2move(t_stack **a, t_stack **b)
+void	setCost2move(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_b;
 	int		size_a;

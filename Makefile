@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+         #
+#    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/02/01 00:55:35 by art3mis          ###   ########.fr        #
+#    Updated: 2024/02/01 23:52:21 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ RULES_FILES	=	swap.c \
 UTILS_DIR	=	utils/
 UTILS_FILES	=	stack.c \
 			handleError.c \
-			idx_n_target.c \
+			setElem.c \
 			cost.c
 
 ALGO_DIR	=	algorithm/
@@ -71,7 +71,7 @@ ALGO_FILES	=	sortMini.c \
 			sortUtils_2.c
 
 MAIN_DIR	=	main/
-MAIN_FILES	=	parse_n_init.c \
+MAIN_FILES	=	init.c \
 			push_swap.c \
 			checkArgs.c	
 
@@ -115,43 +115,43 @@ build:
 		@make $(MAKEFLAGS) -C $(LIBFT_PATH)
 		@cp $(LIBFT_PATH)/libft.a .
 		@make all
-		@printf "$(BLUE)		    __  __              __  __                   __\n"
-		@printf "$(BLUE)		   / / / /__  __  __   / /_/ /_  ___  ________  / /\n"
-		@printf "$(BLUE)		  / /_/ / _ \/ / / /  / __/ __ \/ _ \/ ___/ _ \/ / \n"
-		@printf "$(BLUE)		 / __  /  __/ /_/ /  / /_/ / / /  __/ /  /  __/_/  \n"
-		@printf "$(BLUE)		/_/ /_/\___/\__, /   \__/_/ /_/\___/_/   \___(_)   \n"
-		@printf "$(BLUE)			   /____/                                  \n"
+		@printf "$(BLUE)		 __  __              __  __                   __\n"
+		@printf "$(BLUE)		/ / / /__  __  __   / /_/ /_  ___  ________  / /\n"
+		@printf "$(BLUE)	       / /_/ / _ \/ / / /  / __/ __ \/ _ \/ ___/ _ \/ / \n"
+		@printf "$(BLUE)	      / __  /  __/ /_/ /  / /_/ / / /  __/ /  /  __/_/  \n"
+		@printf "$(BLUE)	     /_/ /_/\___/\__, /   \__/_/ /_/\___/_/   \___(_)   \n"
+		@printf "$(BLUE)			/____/                                  \n"
 		@printf "\n\n"
-		@printf "$(PINK) 			░░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄\n"
-		@printf "$(PINK) 			░░░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄\n"
-		@printf "$(PINK) 			░░░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█\n"
-		@printf "$(PINK) 			░░░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░█\n"
-		@printf "$(PINK) 			░░░▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░█\n"
-		@printf "$(PINK) 			░░█▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒█\n"
-		@printf "$(PINK) 			░░█▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█\n"
-		@printf "$(PINK) 			░░░█▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█\n"
-		@printf "$(PINK) 			░░░░█░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█\n"
-		@printf "$(PINK) 			░░░░░█░░██░░▀█▄▄▄█▄▄█▄████░█\n"
-		@printf "$(PINK) 			░░░░░░█░░░▀▀▄░█░░░█░███████░█\n"
-		@printf "$(PINK) 			░░░░░░░▀▄░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█\n"
-		@printf "$(PINK) 			░░░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█\n"
-		@printf "$(PINK) 			░░░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█\n"
-		@printf "$(PINK) 			░░░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█\n"
+		@printf "$(PINK)		░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄\n"
+		@printf "$(PINK)		░░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄\n"
+		@printf "$(PINK)		░░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█\n"
+		@printf "$(PINK)		░░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░█\n"
+		@printf "$(PINK) 		░░▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░█\n"
+		@printf "$(PINK) 		░█▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒█\n"
+		@printf "$(PINK) 		░█▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█\n"
+		@printf "$(PINK) 		░░█▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█\n"
+		@printf "$(PINK) 		░░░█░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█\n"
+		@printf "$(PINK) 		░░░░█░░██░░▀█▄▄▄█▄▄█▄████░█\n"
+		@printf "$(PINK) 		░░░░░█░░░▀▀▄░█░░░█░███████░█\n"
+		@printf "$(PINK) 		░░░░░░▀▄░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█\n"
+		@printf "$(PINK) 		░░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█\n"
+		@printf "$(PINK) 		░░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█\n"
+		@printf "$(PINK) 		░░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█\n"
 
 all:		$(PUSH_SWAP)
 
 clean:
 		@$(RM) $(OBJ_DIR)
 		@make clean -C $(LIBFT_PATH)
-		@printf "$(RESET)$(BOLD)$(CYAN)[push_swap]: $(RESET)$(CYAN)object files $(RESET)\t=> CLEANED!\n\n"
+		@printf "$(RESET)$(BOLD)$(CYAN)[push_swap]:\t$(RESET)$(CYAN)object files $(RESET)\t=> CLEANED!\n\n"
 
 fclean:		clean
 			@$(RM) $(PUSH_SWAP) $(BONUS_PS)
 			@$(RM) $(LIBFT_PATH)/libft.a
 			@$(RM) libft.a
 			@find . -name ".DS_Store" -delete
-			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
-			@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]: $(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
+			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]:\t$(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
+			@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]:\t$(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
 
 re:		fclean build all
 			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"
