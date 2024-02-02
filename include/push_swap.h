@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/01 23:50:06 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:15:37 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,19 @@ void        ss(t_stack **a, t_stack **b);
 void        ra(t_stack **a);
 void        rb(t_stack **b);
 void        rr(t_stack **a, t_stack **b);
+void        do_rr(t_stack **a, t_stack **b, int *cost_b, int *cost_a);
 
 void        rra(t_stack **a);
 void        rrb(t_stack **b);
 void        rrr(t_stack **a, t_stack **b);
+void        do_rrr(t_stack **a, t_stack **b, int *cost_b, int *cost_a);
 
 void        pa(t_stack **from_b, t_stack **to_a);
 void        pb(t_stack **from_a, t_stack **to_b);
 
-/*  Costs   */
+/*  Costs and Moves  */
 void        setCost2move(t_stack **a, t_stack **b);
+void        cheapestMove(t_stack **a, t_stack **b);
 
 /*  Algorithm   */
 // void     way2five(t_stack **a, t_stack **b);
@@ -88,7 +91,6 @@ int         getDistanceFromMin(t_stack **a, int min);
 void        setIdx(t_stack **stack);
 void        setPos(t_stack **stack);
 void        getTarget(t_stack **b, t_stack **a);
-int         setTargetIdx(t_stack **a, int pos, int targetPos, int targetIdx);
 
 /*  Check args and parse    */
 bool        haveDuplicate(char **argv);

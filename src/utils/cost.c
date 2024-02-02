@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:39:23 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/01 23:49:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:20:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	setCost2move(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_b;
-	int		size_a;
-	int		size_b;
+	int	size_a;
+	int	size_b;
 
 	tmp_b = *b;
 	size_a = stackSize(*a);

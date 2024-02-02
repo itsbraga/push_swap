@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/02/01 23:52:21 by annabrag         ###   ########.fr        #
+#    Updated: 2024/02/02 20:33:42 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,8 @@ ALGO_DIR	=	algorithm/
 ALGO_FILES	=	sortMini.c \
 			sort.c \
 			sortUtils.c \
-			sortUtils_2.c
+			sortUtils_2.c \
+			moves.c
 
 MAIN_DIR	=	main/
 MAIN_FILES	=	init.c \

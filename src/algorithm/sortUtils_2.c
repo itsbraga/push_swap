@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sortUtils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:31:20 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/31 23:04:08 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/02 20:10:19 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,18 @@ bool	isSorted(t_stack *node)
 	}
 	return (true);
 }
+
+// void	putMinAtBottom(t_stack **a, t_stack **b)
+// {
+// 	t_stack	*min_a;
+// 	t_stack	*min_b;
+// 	t_stack	*tmp;
+
+// 	min_a = findMin(*a);
+// 	min_b = findMin(*b);
+// 	tmp = *a;
+// 	while (tmp)
+// 	{
+// 		if ()
+// 	}
+// }

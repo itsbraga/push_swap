@@ -6,11 +6,24 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:33:22 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/01 23:46:54 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:55:29 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+// void	getLowestIdx(t_stack **a)
+// {
+// 	t_stack	*tmp;
+// 	int	idx;
+
+// 	tmp = *a;
+// 	idx = 0;
+// 	while (tmp)
+// 	{
+// 		if (tmp->idx )
+// 	}
+// }
 
 void	setIdx(t_stack **stack)
 {
@@ -47,7 +60,7 @@ void	setPos(t_stack **stack)
 }
 
 /*	Cherche l'index d'ou est situee la target dans la stack_a	*/
-int	setTargetIdx(t_stack **a, int pos, int targetPos, int targetIdx)
+static int	setTargetIdx(t_stack **a, int pos, int targetPos, int targetIdx)
 {
 	t_stack	*tmp_a;
 	

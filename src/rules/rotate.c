@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:18:15 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/31 22:33:50 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/02 20:47:54 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,14 @@ void    rr(t_stack **a, t_stack **b)
     rotate(a);
     rotate(b);
     ft_printf(BLUE "rr\n" RESET);
+}
+
+void    do_rr(t_stack **a, t_stack **b, int *cost_b, int *cost_a)
+{
+    while (*cost_a > 0 && *cost_b > 0)
+    {
+        (*cost_a)--;
+        (*cost_b)--;
+        rr(a, b);
+    }
 }

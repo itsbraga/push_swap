@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverseRotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/01/31 22:34:07 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/02 20:46:34 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,19 @@ void    rrb(t_stack **b)
 // the last elem becomes the first one
 void    rrr(t_stack **a, t_stack **b)
 {
-    reverseRotate(a);
-    reverseRotate(b);
+    if (stackSize(*a) > 1)
+        reverseRotate(a);
+    if (stackSize(*b) > 1)
+        reverseRotate(b);
     ft_printf(YELLOW "rrr\n" RESET);
+}
+
+void    do_rrr(t_stack **a, t_stack **b, int *cost_b, int *cost_a)
+{
+    while (*cost_a < 0 && *cost_b < 0)
+    {
+        (*cost_a)++;
+        (*cost_b)++;
+        rrr(a, b);
+    }   
 }
