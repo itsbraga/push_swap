@@ -6,24 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:33:22 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/02 21:55:29 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:37:07 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-// void	getLowestIdx(t_stack **a)
-// {
-// 	t_stack	*tmp;
-// 	int	idx;
-
-// 	tmp = *a;
-// 	idx = 0;
-// 	while (tmp)
-// 	{
-// 		if (tmp->idx )
-// 	}
-// }
 
 void	setIdx(t_stack **stack)
 {
@@ -40,23 +27,38 @@ void	setIdx(t_stack **stack)
 	}
 }
 
-void	setPos(t_stack **stack)
+void    setPos(t_stack **stack)
+{
+    t_stack    *tmp;
+    int    	i;
+
+    tmp = findMin(*stack);
+    i = 0;
+    while (tmp)
+    {
+        tmp->pos = i;
+        tmp->idx = -1;
+        tmp->target = -1;
+        tmp->cost_a = -1;
+        tmp->cost_b = -1;
+        tmp = findMin(*stack);
+        i++;
+    }
+}
+
+int	setLowestIdx(t_stack **a)
 {
 	t_stack	*tmp;
-	int	i;
+	int	idx;
 
-	tmp = findMin(*stack);
-	i = 0;
-	while (tmp)
+	tmp = *a;
+	idx = 0;
+	while (tmp->pos != 0)
 	{
-		tmp->pos = i;
-		tmp->idx = -1;
-		tmp->target = -1;
-		tmp->cost_a = -1;
-		tmp->cost_b = -1;
-		tmp = findMin(*stack);
-		i++;
+		idx++;
+		tmp = tmp->next;
 	}
+	return (idx);
 }
 
 /*	Cherche l'index d'ou est situee la target dans la stack_a	*/

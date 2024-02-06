@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/01 21:22:36 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:31:15 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static bool	IsOnlyDigit(char *argv)
 	int	i;
 
 	i = 1;
-	printf("%s\n", argv);
 	if (isSign(argv[i]) && (argv[i + 1]))
 		i++;
 	if (isSpace(&argv[i]) && (argv[i + 1]))
@@ -42,10 +41,7 @@ static bool	IsOnlyDigit(char *argv)
 	while (argv[i] && ft_isdigit(argv[i]))
 		i++;
 	if (argv[i] && !ft_isdigit(argv[i]))
-	{
-		printf("le char \"%c\" + le nombre %s\n", argv[i], argv);
 		return (false);
-	}
 	return (true);
 }
 

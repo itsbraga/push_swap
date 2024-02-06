@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/02 21:15:37 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:37:33 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,14 @@ void        isError(t_stack **a, t_stack **b);
 int         stackSize(t_stack *node);
 int         getMedian(t_stack *node);
 t_stack     *findMin(t_stack *node);
+int         findMinContent(t_stack *node);
+// t_stack     *findMinAfterSet(t_stack *node);
 t_stack     *findMax(t_stack *node);
 int         getDistanceFromMin(t_stack **a, int min);
 
 void        setIdx(t_stack **stack);
 void        setPos(t_stack **stack);
+int         setLowestIdx(t_stack **a);
 void        getTarget(t_stack **b, t_stack **a);
 
 /*  Check args and parse    */

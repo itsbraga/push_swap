@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/01 23:47:55 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:01:05 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ static void	sortThree(t_stack **stack)
 
 static void	sortFour(t_stack **a, t_stack **b)
 {
-	t_stack		*min;
-	int		dist;
+	int	min;
+	int	dist;
 
-	min = findMin(*a);
-	if (!min)
-		return ;
-	dist = getDistanceFromMin(a, min->content);
+	min = findMinContent(*a);
+	// if (!min)
+	// 	return ;
+	dist = getDistanceFromMin(a, min);
 	if (dist <= 2 && dist != 0)
 		ra(a);
 	if (dist == 2)
@@ -92,13 +92,13 @@ static void	sortFour(t_stack **a, t_stack **b)
 
 static void	sortFive(t_stack **a, t_stack **b)
 {
-	t_stack		*min;
-	int		dist;
+	int	min;
+	int	dist;
 
-	min = findMin(*a);
-	if (!min)
-		return ;
-	dist = getDistanceFromMin(a, min->content);
+	min = findMinContent(*a);
+	// if (!min)
+	// 	return ;
+	dist = getDistanceFromMin(a, min);
 	if (isSorted(*a) == true)
 		return ;
 	if (dist <= 2 && dist != 0)
@@ -118,8 +118,6 @@ void	sortMini(t_stack **a, t_stack **b)
 {
 	int size;
 
-	if (!(*b))
-		return ;
 	size = stackSize(*a);
 	if (size == 3)
 		sortThree(a);

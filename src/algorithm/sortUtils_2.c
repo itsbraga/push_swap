@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:31:20 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/02 20:10:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:09:01 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,23 @@ bool	isSorted(t_stack *node)
 	return (true);
 }
 
-// void	putMinAtBottom(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*min_a;
-// 	t_stack	*min_b;
-// 	t_stack	*tmp;
+void	setCost2move(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp_b;
+	int	size_a;
+	int	size_b;
 
-// 	min_a = findMin(*a);
-// 	min_b = findMin(*b);
-// 	tmp = *a;
-// 	while (tmp)
-// 	{
-// 		if ()
-// 	}
-// }
+	tmp_b = *b;
+	size_a = stackSize(*a);
+	size_b = stackSize(tmp_b);
+	while (tmp_b)
+	{
+		tmp_b->cost_b = tmp_b->idx;
+		if (tmp_b->idx > getMedian(*b))
+			tmp_b->cost_b = (size_b - tmp_b->idx) * -1;
+		tmp_b->cost_a = tmp_b->target;
+		if (tmp_b->target > getMedian(*a))
+			tmp_b->cost_a = (size_a - tmp_b->target) * -1;
+		tmp_b = tmp_b->next;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:35:15 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/02 21:55:46 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:02:08 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,30 @@ static void	way2five(t_stack **a, t_stack **b)
 	sortMini(a, b);
 }
 
-// void	finalSort(t_stack **a)
-// {
-// 	int	lowest_idx;
-// 	int	size;
+static void	finalSort(t_stack **a)
+{
+	int	lowest_idx;
+	int	size;
 	
-// 	lowest_idx = 
-// 	size = stackSize(*a);
-// }
+	lowest_idx = setLowestIdx(a);
+	size = stackSize(*a);
+	if (lowest_idx > getMedian(*a))
+	{
+		while (lowest_idx < size)
+		{
+			rra(a);
+			lowest_idx++;
+		}
+	}
+	else
+	{
+		while (lowest_idx > 0)
+		{
+			ra(a);
+			lowest_idx--;
+		}
+	}
+}
 
 /*	Means that we sort nodes above five	*/
 void	sort(t_stack **a, t_stack **b)
