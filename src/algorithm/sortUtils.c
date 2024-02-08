@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
-/*   Updated: 2024/02/06 18:32:48 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:19:07 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,27 +89,6 @@ int     findMinContent(t_stack *node)
 	}
 	return (min);
 }
-
-// t_stack     *findMinAfterSet(t_stack *node)
-// {
-//     int     min;
-//     t_stack *minNode;
-
-//     if (!node)
-//         return (NULL);
-//     min = INT_MAX;
-//     minNode = NULL;
-//     while (node)
-//     {
-//         if (node->pos == 0)
-//         {
-//             min = node->content;
-//             minNode = node;
-//         }
-//         node = node->next;
-//     }
-//     return (minNode);
-// }
 
 /*  Find the elem with the highest content. */
 t_stack     *findMax(t_stack *node)

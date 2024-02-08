@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/02/06 19:24:53 by annabrag         ###   ########.fr        #
+#    Updated: 2024/02/08 20:48:30 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,7 +157,7 @@ re:		fclean build all
 			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"
 
 leak:
-		@valgrind --leak-check=full --leak-resolution=high --show-leak-kinds=all ./push_swap
+		@valgrind --leak-check=full --track-origins=yes --leak-resolution=high --show-leak-kinds=all ./push_swap
 
 leakFds:
 		@valgrind --leak-check=full --track-Fds=yes

@@ -6,38 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/06 18:01:05 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:19:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-// static void	sortThree(t_stack **stack)
-// {
-// 	t_stack	*min;
-// 	t_stack	*max;
-
-// 	if (!(*stack))
-// 		return ;
-// 	min = findMin(*stack);
-// 	if (!min)
-// 	{
-// 		printf("min est nul\n");
-// 		return ;
-// 	}
-// 	max = findMax(*stack);
-// 	if (!max)
-// 		return ;
-// 	// if (isSorted(*stack) == true)
-// 	// 	return ;
-// 	if ((*stack)->content == max->content)
-// 		ra(stack);
-// 	if ((*stack)->content < (*stack)->next->content
-// 		&& ((*stack)->next->content == max->content))
-// 		rra(stack);
-// 	if ((*stack)->content != min->content)
-// 		sa(stack);
-// }
 
 static void	sortThree(t_stack **stack)
 {

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:49:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/06 18:38:05 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:18:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_stack     *ParseAndFill(char **argv)
     int     i;
     long    nbr;
 
-    // if (!argv)
-    //     isError(NULL, NULL);
     a = NULL;
     i = 1;
     while (argv[i])
