@@ -6,7 +6,7 @@
 /*   By: panther <panther@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 19:23:31 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/18 00:05:08 by panther          ###   ########.fr       */
+/*   Updated: 2024/02/09 21:42:44 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,6 @@ void	ft_bzero(void *s, size_t n)
 		*(char *)(s + i) = 0;
 		i++;
 	}
-}
-
-int		main(void)
-{
-	char	s[] = "hello";
-	printf("%s\n", s);
-	ft_bzero(s, 1);
-	printf("%s\n", s);
 }
 
 /*int	main(void)

@@ -6,15 +6,15 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:04:08 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/08 20:18:09 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 21:54:06 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*stackNew(int number)
+t_stack	*stack_new(int number)
 {
-	t_stack	*new;
+	t_stack		*new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
@@ -27,9 +27,9 @@ t_stack	*stackNew(int number)
 	return (new);
 }
 
-t_stack	*getLast(t_stack *node)
+t_stack	*get_last(t_stack *node)
 {
-	t_stack *tmp;
+	t_stack		*tmp;
 
 	tmp = node;
 	if (!tmp)
@@ -39,9 +39,9 @@ t_stack	*getLast(t_stack *node)
 	return (tmp);
 }
 
-t_stack	*getBeforeLast(t_stack *node)
+t_stack	*get_before_last(t_stack *node)
 {
-	t_stack *tmp;
+	t_stack		*tmp;
 
 	tmp = node;
 	if (!tmp)
@@ -51,13 +51,13 @@ t_stack	*getBeforeLast(t_stack *node)
 	return (tmp);
 }
 
-void	addBottom(t_stack **stack, t_stack *new_node)
+void	add2bottom(t_stack **stack, t_stack *new_node)
 {
-	t_stack	*tmp;
+	t_stack		*tmp;
 
 	if (*stack)
 	{
-		tmp = getLast(*stack);
+		tmp = get_last(*stack);
 		tmp->next = new_node;
 	}
 	else

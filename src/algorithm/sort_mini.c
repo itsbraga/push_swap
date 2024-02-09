@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/08 20:19:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 22:13:35 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	sortThree(t_stack **stack)
+static void	sort_three(t_stack **stack)
 {
 	int	a;
 	int	b;
@@ -21,7 +21,7 @@ static void	sortThree(t_stack **stack)
 	a = (*stack)->content;
 	b = (*stack)->next->content;
 	c = (*stack)->next->next->content;
-	if (isSorted(*stack) == true)
+	if (is_sorted(*stack) == true)
 		return ;
 	else if ((a < b) && (b > c) && (a < c))
 	{
@@ -41,38 +41,34 @@ static void	sortThree(t_stack **stack)
 	}
 }
 
-static void	sortFour(t_stack **a, t_stack **b)
+static void	sort_four(t_stack **a, t_stack **b)
 {
 	int	min;
 	int	dist;
 
-	min = findMinContent(*a);
-	// if (!min)
-	// 	return ;
-	dist = getDistanceFromMin(a, min);
+	min = find_min_content(*a);
+	dist = get_distance_from_min(a, min);
 	if (dist <= 2 && dist != 0)
 		ra(a);
 	if (dist == 2)
 		ra(a);
 	if (dist == 3)
 		rra(a);
-	if (isSorted(*a) == true)
+	if (is_sorted(*a) == true)
 		return ;
 	pb(a, b);
-	sortThree(a);
+	sort_three(a);
 	pa(b, a);
 }
 
-static void	sortFive(t_stack **a, t_stack **b)
+static void	sort_five(t_stack **a, t_stack **b)
 {
 	int	min;
 	int	dist;
 
-	min = findMinContent(*a);
-	// if (!min)
-	// 	return ;
-	dist = getDistanceFromMin(a, min);
-	if (isSorted(*a) == true)
+	min = find_min_content(*a);
+	dist = get_distance_from_min(a, min);
+	if (is_sorted(*a) == true)
 		return ;
 	if (dist <= 2 && dist != 0)
 		ra(a);
@@ -83,19 +79,19 @@ static void	sortFive(t_stack **a, t_stack **b)
 	if (dist == 3)
 		rra(a);
 	pb(a, b);
-	sortFour(a, b);
+	sort_four(a, b);
 	pa(b, a);
 }
 
-void	sortMini(t_stack **a, t_stack **b)
+void	sort_mini(t_stack **a, t_stack **b)
 {
-	int size;
+	int	size;
 
-	size = stackSize(*a);
+	size = stack_size(*a);
 	if (size == 3)
-		sortThree(a);
+		sort_three(a);
 	if (size == 4)
-		sortFour(a, b);
+		sort_four(a, b);
 	if (size == 5)
-		sortFive(a, b);
+		sort_five(a, b);
 }

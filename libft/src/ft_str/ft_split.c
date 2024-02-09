@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:29:00 by annabrag          #+#    #+#             */
-/*   Updated: 2023/11/24 16:51:45 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 17:19:40 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static char	*ft_strdup2(char const *s, char c)
 	len = 0;
 	while (s[len] && s[len] != c)
 		len++;
-	dup = (char *)malloc(sizeof(char) * (len + 1));
+	dup = malloc(sizeof(char) * (len + 1));
 	if (!dup)
 		return (NULL);
 	i = 0;
@@ -88,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	counter = word_count(s, c);
-	split = (char **)malloc(sizeof(char *) * (counter + 1));
+	split = malloc(sizeof(char *) * (counter + 1));
 	if (!split)
 		return (NULL);
 	i = 0;

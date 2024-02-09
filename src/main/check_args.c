@@ -6,20 +6,20 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/08 21:29:08 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 22:19:13 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static bool	isSign(char c)
+static t_bool	is_sign(char c)
 {
 	if (!(c == '-' || c == '+'))
 		return (false);
 	return (true);
 }
 
-static bool	isSpace(char *str)
+static t_bool	is_space(char *str)
 {
 	int	i;
 
@@ -29,23 +29,23 @@ static bool	isSpace(char *str)
 	return (true);
 }
 
-static bool	IsOnlyDigit(char *str)
+static t_bool	is_only_digit(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (isSign(str[i]) && (str[i + 1]))
+	if (is_sign(str[i]) == true && (str[i + 1]))
 		i++;
-	if (isSpace(&str[i]) && (str[i + 1]))
+	if (is_space(&str[i]) == true && (str[i + 1]))
 		i++;
-	while (str[i] && ft_isdigit(str[i]))
+	while (str[i] && ft_isdigit(str[i]) == 1)
 		i++;
 	if (str[i] && !ft_isdigit(str[i]))
 		return (false);
 	return (true);
 }
 
-bool	haveDuplicate(char **argv)
+t_bool	have_duplicate(char **argv)
 {
 	int	i;
 	int	j;
@@ -65,19 +65,16 @@ bool	haveDuplicate(char **argv)
 	return (false);
 }
 
-bool	globalCheckIsSuccess(char **argv)
+t_bool	global_check_successful(char **argv)
 {
 	int	i;
 
 	i = 1;
-	if (haveDuplicate(argv) == true)
-	{
-		write(2, "Error\n", 6);
+	if (have_duplicate(argv) == true)
 		return (false);
-	}
 	while (argv[i])
 	{
-		if (IsOnlyDigit(argv[i]) == false)
+		if (is_only_digit(argv[i]) == false)
 			return (false);
 		i++;
 	}

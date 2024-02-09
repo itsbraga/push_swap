@@ -6,102 +6,99 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:28:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/08 21:57:07 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 23:19:39 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void    showStack(t_stack *node, char c)
-{
-    t_stack		*tmp;
-    unsigned int	idx;
+// static void	show_stack(t_stack *node, char c)
+// {
+// 	t_stack			*tmp;
+// 	unsigned int	idx;
 
-    if (!node)
-	return ;
-    tmp = node;
-    idx = 0;
-    write(1, "\n", 1);
-    while (tmp)
-    {
-	ft_printf("Stack (%d) ➔	  %d\n", idx++, tmp->content);
-        tmp = tmp->next;
-    }
-    ft_printf("		  —\n");
-    ft_printf("		  %c\n\n", c);
-}
+// 	if (!node)
+// 		return ;
+// 	tmp = node;
+// 	idx = 0;
+// 	write(1, "\n", 1);
+// 	while (tmp)
+// 	{
+// 		ft_printf("Stack (%d) ➔	  %d\n", idx++, tmp->content);
+// 		tmp = tmp->next;
+// 	}
+// 	ft_printf("		  —\n");
+// 	ft_printf("		  %c\n\n", c);
+// }
 
 static void	push_swap(t_stack **a, t_stack **b)
 {
-	int	size_a;
-	
-	size_a = stackSize(*a);
-	if (!isSorted(*a))
+	int		size_a;
+
+	size_a = stack_size(*a);
+	if (!is_sorted(*a))
 	{
 		if (size_a == 2)
 			sa(a);
 		if (size_a >= 3 && size_a <= 5)
-			sortMini(a, b);
+			sort_mini(a, b);
 		if (size_a > 5)
 			sort(a, b);
-		showStack(*a, 'A');
-		showStack(*b, 'B');
+		// show_stack(*a, 'A');
+		// show_stack(*b, 'B');
 		clear(a);
 		clear(b);
 	}
 	return ;
 }
 
-static int	splitCase(char **argv, t_stack *a)
+static int	split_case(char **argv, t_stack *a)
 {
-	t_stack	*b;
-	int	i;
+	t_stack		*b;
+	int			i;
 
 	i = -1;
 	argv = ft_split(argv[1], ' ');
-	if (globalCheckIsSuccess(argv) == true)
+	if (global_check_successful(argv) == true)
 	{
-		// argv = ft_split(argv[1], ' ');
-		a = ParseAndFill(argv);
+		a = parse_n_fill(argv);
 		if (!a)
-			isError(&a, NULL);
+			(free_split(argv), is_error(&a, NULL));
 		b = NULL;
-		(setPos(&a), push_swap(&a, &b));
-		while (argv[++i])
-			free(argv[i]);
-		free(argv);
+		if (is_sorted(a) == true)
+			clear(&a);
+		else
+			(set_pos(&a), push_swap(&a, &b));
+		free_split(argv);
 		return (EXIT_SUCCESS);
 	}
-	while (argv[++i])
-		free(argv[i]);
-	free(argv);
+	free_split(argv);
 	return (EXIT_FAILURE);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int	i;
-	
+	t_stack		*a;
+	t_stack		*b;
+
 	a = NULL;
-	i = -1;
 	if (argc < 2)
 		return (ft_printf(YELLOW "Too few arguments to use this program\n",
 				EXIT_FAILURE));
 	if (argc == 2)
 	{
-		if (splitCase(argv, a) == 1)
-			isError(&a, NULL);
+		if (split_case(argv, a) == EXIT_FAILURE)
+			is_error(&a, NULL);
 		return (EXIT_SUCCESS);
 	}
-	else if (globalCheckIsSuccess(argv) == true)
+	else if (global_check_successful(argv) == true)
 	{
-		a = ParseAndFill(argv);
+		(argv++);
+		a = parse_n_fill(argv);
 		if (!a)
-			isError(&a, NULL);
+			is_error(&a, NULL);
 		b = NULL;
-		(setPos(&a), push_swap(&a, &b));
+		(set_pos(&a), push_swap(&a, &b));
 		return (EXIT_SUCCESS);
 	}
 	return (EXIT_FAILURE);

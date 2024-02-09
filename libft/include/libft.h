@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:44:52 by annabrag          #+#    #+#             */
-/*   Updated: 2024/01/29 18:34:35 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 22:20:16 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdio.h>
+# include <limits.h>
 # include "colors.h"
 
 typedef struct s_list
@@ -33,7 +34,7 @@ int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 int			ft_atoi(const char *str);
-long			ft_atol(const char *str);
+long		ft_atol(const char *str, int *error);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strisnum(char *s);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -72,7 +73,7 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 int			ft_lstsize(t_list *lst);
-void		displayList(t_list *lst);
+void		display_list(t_list *lst);
 
 // POOL functions
 int			base_check(char *base);
@@ -111,7 +112,7 @@ int			ft_find_next_prime(int nb);
 int			ft_sqrt(int nb);
 int			ft_fibonacci(int index);
 
-void		ft_foreach(int *tab, int length, void(*f)(int));
-int			*ft_map(int *tab, int length, int(*f)(int));
+//void		ft_foreach(int *tab, int length, void(*f)(int));
+//int			*ft_map(int *tab, int length, int(*f)(int));
 
 #endif

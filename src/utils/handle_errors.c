@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/08 20:15:34 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/09 21:54:35 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	clear(t_stack **stack)
 	*stack = NULL;
 }
 
-void    isError(t_stack **a, t_stack **b)
+void	is_error(t_stack **a, t_stack **b)
 {
 	if (a == NULL || *a != NULL)
 		clear(a);
@@ -35,4 +35,14 @@ void    isError(t_stack **a, t_stack **b)
 		clear(b);
 	write(2, "Error\n", 6);
 	exit(1);
+}
+
+void	free_split(char **argv)
+{
+	int	i;
+
+	i = -1;
+	while (argv[++i])
+		free(argv[i]);
+	free(argv);
 }
