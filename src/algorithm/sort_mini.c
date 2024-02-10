@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/10 18:44:40 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/10 18:46:58 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,6 @@ static void	sort_three(t_stack **stack)
 		sa(stack);
 	}
 }
-
-// static void	sort_three(t_stack **stack)
-// {
-// 	int	min;
-// 	int	max;
-
-// 	if (!(*stack))
-// 		return ;
-// 	min = find_min_content(*stack);
-// 	max = find_max_content(*stack);
-// 	if ((*stack)->content == max)
-// 		ra(stack);
-// 	if ((*stack)->content < (*stack)->next->content
-// 		&& (*stack)->next->content == max)
-// 		rra(stack);
-// 	if ((*stack)->content != min)
-// 		sa(stack);
-// }
 
 static void	sort_four(t_stack **a, t_stack **b)
 {
