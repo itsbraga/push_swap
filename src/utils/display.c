@@ -1,51 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 15:14:42 by art3mis          ###   ########.fr       */
+/*   Created: 2024/02/10 16:58:14 by art3mis           #+#    #+#             */
+/*   Updated: 2024/02/10 16:58:51 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	clear(t_stack **stack)
+void	show_stack(t_stack *node, char c)
 {
-	t_stack	*tmp;
+	t_stack			*tmp;
+	unsigned int	idx;
 
-	if (!stack || !(*stack))
+	if (!node)
 		return ;
-	while (*stack)
+	tmp = node;
+	idx = 0;
+	write(1, "\n", 1);
+	while (tmp)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		ft_printf("Stack (%d) ➔	  %d\n", idx++, tmp->content);
+		tmp = tmp->next;
 	}
-	*stack = NULL;
-}
-
-void	is_error(t_stack **a, t_stack **b)
-{
-	if (a == NULL || *a != NULL)
-		clear(a);
-	if (b == NULL || *b != NULL)
-		clear(b);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	free_split(char **argv)
-{
-	int	i;
-
-	i = 0;
-	while (argv[i])
-	{
-		free(argv[i]);
-		i++;
-	}
-	free(argv);
+	ft_printf("		  —\n");
+	ft_printf("		  %c\n\n", c);
 }

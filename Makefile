@@ -3,14 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
+#    By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/02/09 23:54:14 by annabrag         ###   ########.fr        #
+#    Updated: 2024/02/10 16:59:04 by art3mis          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-################################### COLORS #####################################
+################################################################################
+#																			   #
+#									COLORS									   #
+#																			   #
+################################################################################
 
 RESET		:=	\e[0m
 BOLD		:=	\e[1m
@@ -37,7 +41,11 @@ BRIGHT_PURPLE	:=	\e[95m
 BRIGHT_CYAN	:=	\e[96m
 
 
-################################### BASICS ####################################
+################################################################################
+#																			   #
+#									BASICS									   #
+#																			   #
+################################################################################
 
 PUSH_SWAP	=	push_swap
 # BONUS		=	mychecker
@@ -50,56 +58,72 @@ RM		=	rm -rf
 MAKEFLAGS	+=	--no-print-directory
 
 
-################################### SOURCES ###################################
+################################################################################
+#																			   #
+#									SOURCES									   #
+#																			   #
+################################################################################
 
-RULES_DIR	=	rules/
-RULES_FILES	=	swap.c \
-			rotate.c \
-			reverse_rotate.c \
-			push.c
+INSTRUCTIONS_DIR	=	instructions/
+INSTRUCTIONS_FILES	=	swap.c \
+					rotate.c \
+					reverse_rotate.c \
+					push.c
 
-UTILS_DIR	=	utils/
-UTILS_FILES	=	stack.c \
-			handle_errors.c \
-			set_elem.c \
+UTILS_DIR		=	utils/
+UTILS_FILES		=	stack.c \
+				handle_errors.c \
+				set_elem.c \
+				display.c
 
-ALGO_DIR	=	algorithm/
-ALGO_FILES	=	sort_mini.c \
-			sort.c \
-			sort_utils.c \
-			sort_utils_2.c \
-			moves.c
+ALGO_DIR		=	algorithm/
+ALGO_FILES		=	sort_mini.c \
+				sort.c \
+				cost.c \
+				move.c \
+				sort_utils.c
 
-MAIN_DIR	=	main/
-MAIN_FILES	=	init.c \
-			push_swap.c \
-			check_args.c	
+EXEC_DIR		=	exec/
+EXEC_FILES		=	check_args.c \
+				parsing_utils.c \
+				init.c \
+				main.c
 
 # SRC_BONUS	=
 
 
-######################## COMBINE DIRECTORIES AND FILES ########################
+################################################################################
+#																			   #
+#								COMBINE FILES								   #
+#									and										   #
+#								DIRECTORIES									   #
+#																			   #
+################################################################################
 
 SRC_DIR		=	src/
 
-SRC_NAMES	=	$(addprefix $(RULES_DIR), $(RULES_FILES)) \
+SRC_NAMES	=	$(addprefix $(INSTRUCTIONS_DIR), $(INSTRUCTIONS_FILES)) \
 			$(addprefix $(UTILS_DIR), $(UTILS_FILES)) \
 			$(addprefix $(ALGO_DIR), $(ALGO_FILES)) \
-			$(addprefix $(MAIN_DIR), $(MAIN_FILES))
+			$(addprefix $(EXEC_DIR), $(EXEC_FILES))
 
 OBJ_DIR		=	obj/
 
 OBJ_NAMES	=	$(SRC_NAMES:.c=.o)
 
-OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(RULES_DIR) \
-                	$(UTILS_DIR) \
+OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(INSTRUCTIONS_DIR) \
+            $(UTILS_DIR) \
 			$(ALGO_DIR) \
-			$(MAIN_DIR))
+			$(EXEC_DIR))
 
 OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 
 
-#################################### RULES ####################################
+################################################################################
+#																			   #
+#									RULES									   #
+#																			   #
+################################################################################
 
 $(PUSH_SWAP):	$(OBJ)
 			@printf "\n$(RESET)$(BOLD)$(PINK)[push_swap]:\t$(RESET)"
@@ -116,6 +140,9 @@ build:
 		@cp $(LIBFT_PATH)/libft.a .
 		@make all
 		@printf "\n\n. ⋅ ˚̣- : ✧ : – ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ₊° ˗ ˏ ˋ ♡ ˎˊ ˗ °₊ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ – : ✧ : -˚̣⋅ .\n\n\n\n"
+		@printf "$(PINK)\t\t\t █▀▄▀█ █▄▄ █▀█ █▀▄▀█ █▀█ █▀█\n"
+		@printf "$(PINK)\t\t\t █░▀░█ █▄█ █▄█ █░▀░█ █▀▀ █▄█\n"
+		@printf "\n"
 		@printf "$(PINK)\t\t ░░█ █▀▀ ▄▀█ █▄░█ █▄░█ █▀▀   █▀▄ ▀ ▄▀█ █▀█ █▀▀\n"
 		@printf "$(PINK)\t\t █▄█ ██▄ █▀█ █░▀█ █░▀█ ██▄   █▄▀ ░ █▀█ █▀▄ █▄▄\n"
 		@printf "\n\n"
@@ -143,7 +170,7 @@ build:
 		@printf "$(RESET) \t\t\t ▄█────▀▀▀────█─────█────▀▀───█─\n"
 		@printf "$(RESET) \t\t\t █▀▄──────────█─────█▄────────█─\n"
 		@printf "$(RESET) \t\t\t █──▀▀▀▀▀█▄▄▄▄▀─────▀█▀▀▀▄▄▄▄▀──\n"
-		@printf "$(RESET) \t\t\t █───────────────────▀▄─────────\n"
+		@printf "$(RESET) \t\t\t █───────────────────▀▄─────────\n\n\n"
 
 
 all:		$(PUSH_SWAP)
@@ -162,20 +189,24 @@ fclean:		clean
 			@printf "$(BOLD)$(BRIGHT_PURPLE)[push_swap]:\t$(RESET)$(BRIGHT_PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
 
 re:		fclean build all
-			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"
+			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n\n"
 
-leak:
-		@valgrind --leak-check=full --track-origins=yes --leak-resolution=high --show-leak-kinds=all ./push_swap
+# leak:
+# 		@valgrind --leak-check=full --track-origins=yes --leak-resolution=high --show-leak-kinds=all ./push_swap
 
-leakFds:
-		@valgrind --leak-check=full --track-Fds=yes
+# leakFds:
+# 		@valgrind --leak-check=full --track-Fds=yes
 
 norm:
 		@clear
 		@norminette $(SRC_DIR) $(INC) $(LIBFT_PATH) | grep -v Norme -B1 || true
 
 
-################################### BONUS ###################################
+################################################################################
+#																			   #
+#									BONUS									   #
+#																			   #
+################################################################################
 
 # $(BONUS):	$(OBJ_BONUS)
 # 			@printf "$(RESET)$(BOLD)$(CYAN)[push_swap BONUS]:\t$(RESET)"

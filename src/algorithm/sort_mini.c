@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortMini.c                                         :+:      :+:    :+:   */
+/*   sort_mini.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/09 22:13:35 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:44:40 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,24 @@ static void	sort_three(t_stack **stack)
 		sa(stack);
 	}
 }
+
+// static void	sort_three(t_stack **stack)
+// {
+// 	int	min;
+// 	int	max;
+
+// 	if (!(*stack))
+// 		return ;
+// 	min = find_min_content(*stack);
+// 	max = find_max_content(*stack);
+// 	if ((*stack)->content == max)
+// 		ra(stack);
+// 	if ((*stack)->content < (*stack)->next->content
+// 		&& (*stack)->next->content == max)
+// 		rra(stack);
+// 	if ((*stack)->content != min)
+// 		sa(stack);
+// }
 
 static void	sort_four(t_stack **a, t_stack **b)
 {
@@ -88,10 +106,12 @@ void	sort_mini(t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
-	if (size == 3)
+	if (size == 2)
+		sa(a);
+	else if (size == 3)
 		sort_three(a);
-	if (size == 4)
+	else if (size == 4)
 		sort_four(a, b);
-	if (size == 5)
+	else if (size == 5)
 		sort_five(a, b);
 }

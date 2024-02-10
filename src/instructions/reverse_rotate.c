@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/09 23:23:15 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/10 15:33:01 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,4 @@ void	rrr(t_stack **a, t_stack **b)
 	if (stack_size(*b) > 1)
 		reverse_rotate(b);
 	ft_printf("rrr\n");
-}
-
-void	do_rrr(t_stack **a, t_stack **b, int *cost_b, int *cost_a)
-{
-	while (*cost_a < 0 && *cost_b < 0)
-	{
-		(*cost_a)++;
-		(*cost_b)++;
-		rrr(a, b);
-	}
 }

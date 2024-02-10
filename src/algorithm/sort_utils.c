@@ -1,36 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortUtils.c                                        :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 00:07:11 by panther           #+#    #+#             */
-/*   Updated: 2024/02/09 22:15:13 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:44:53 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	stack_size(t_stack *node)
+t_bool	is_sorted(t_stack *node)
 {
-	int	size;
+	t_stack		*tmp;
 
 	if (!node)
-		return (0);
-	size = 0;
-	while (node)
+		return (false);
+	tmp = node;
+	while (tmp->next != NULL)
 	{
-		size++;
-		node = node->next;
+		if (tmp->content > tmp->next->content)
+			return (false);
+		tmp = tmp->next;
 	}
-	return (size);
+	return (true);
 }
 
-int	get_median(t_stack *node)
-{
-	return (stack_size(node) / 2);
-}
+// t_stack     *find_min(t_stack *node)
+// {
+//     t_stack *min;
+//     t_stack *tmp;
+
+//     if (!node)
+//         return (NULL);
+//     min = node;
+//     tmp = node;
+//     while (tmp)
+//     {
+//         if (tmp->content < min->content)
+//             min = tmp;
+//         tmp = tmp->next;
+//     }
+//     return (min);
+// }
+//
+// int	get_min_idx(t_stack *node)
+// {
+// 	t_stack	*tmp;
+
+// 	tmp = node;
+// 	while (find_min(node)->content != tmp->content)
+// 		tmp = tmp->next;
+// 	return (tmp->idx);
+// }
 
 /*  Find the elem with the smallest content. */
 t_stack	*find_min(t_stack *node)
@@ -73,25 +97,25 @@ int	find_min_content(t_stack *node)
 	return (min);
 }
 
-/*  Find the elem with the highest content. */
-// t_stack     *find_max(t_stack *node)
+// int	find_max_content(t_stack *node)
 // {
-//     t_stack *max;
-//     t_stack *tmp;
+// 	int	max;
 
-//     if (!node)
-//         return (NULL);
-//     max = node;
-//     tmp = node;
-//     while (tmp)
-//     {
-//         if (tmp->content > max->content)
-//             max = tmp;
-//         tmp = tmp->next;
-//     }
-//     return (max);
+// 	if (!node)
+// 		return (0);
+// 	max = node->content;
+// 	while (node)
+// 	{
+// 		if (max < node->content)
+// 			max = node->content;
+// 		node = node->next;
+// 	}
+// 	return (max);
 // }
 
+/*	A is scanned until a minimum value (min) is found and calculates
+*	the distance of that elem from the top of the stack.
+*/
 int	get_distance_from_min(t_stack **a, int min)
 {
 	t_stack	*tmp;
