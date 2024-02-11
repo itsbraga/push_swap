@@ -6,7 +6,7 @@
 /*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:18:15 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 15:32:52 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/10 21:07:45 by art3mis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rotate(t_stack **stack)
 	t_stack		*tmp;
 	t_stack		*last;
 
-	if (!(*stack) || !((*stack)->next) || !((*stack)->next->next))
+	if (!(*stack) || !((*stack)->next))
 		return ;
 	tmp = (*stack);
 	(*stack) = (*stack)->next;
