@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:28:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 21:28:38 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:49:01 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,48 +32,19 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	if (argc < 2)
-		return (EXIT_FAILURE);
-	if (!global_check_successful(argv))
-		return (EXIT_FAILURE);
+		return (1);
 	if (argc == 2)
-		split_case(argv, a);
-	else if (argc > 2)
-	{
+		argv = ft_split(argv[1], ' ');
+	else 
 		(argv++);
-		a = convert_n_fill_stack(argv);
-		if (!a)
-			exit_error_stack(&a, NULL);
-		b = NULL;
-		(set_pos(&a), push_swap(&a, &b));
-		(clear_stack(&a), clear_stack(&b));
-		return (EXIT_SUCCESS);
-	}
+	if (!global_check_successful(argv))
+		return (free_split(argc, argv), 1);
+	a = convert_n_fill_stack(argc, argv);
+	if (!a)
+		exit_error_stack(&a, NULL, argc, argv);
+	b = NULL;
+	(set_pos(&a), push_swap(&a, &b));
+	(clear_stack(&a), clear_stack(&b));
+	free_split(argc, argv);
 	return (EXIT_SUCCESS);
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	t_stack		*a;
-// 	t_stack		*b;
-
-// 	a = NULL;
-// 	if (argc < 2)
-// 		return (EXIT_FAILURE));
-// 	if (argc == 2)
-// 	{
-// 		if (split_case(argv, a) == EXIT_FAILURE)
-// 			exit_error_stack(&a, NULL);
-// 		return (EXIT_SUCCESS);
-// 	}
-// 	else if (global_check_successful(argv) == true)
-// 	{
-// 		(argv++);
-// 		a = convert_n_fill_stack(argv);
-// 		if (!a)
-// 			exit_error_stack(&a, NULL);
-// 		b = NULL;
-// 		(set_pos(&a), push_swap(&a, &b));
-// 		return (EXIT_SUCCESS);
-// 	}
-// 	return (EXIT_FAILURE);
-// }

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 20:58:22 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:14:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,32 +70,15 @@ t_bool	global_check_successful(char **argv)
 	int	i;
 
 	i = 1;
-	if (have_duplicates(argv) == true)
-		return (false);
+	printf("argv[0]: %s\n", argv[0]);
+	printf("argv[1]: %s\n", argv[1]);
 	while (argv[i])
 	{
 		if (!is_only_digit(argv[i]))
-			return (false);
+			return (ft_printf("Error: Not only digits.\n"), false);
 		i++;
 	}
+	if (have_duplicates(argv) == true)
+		return (ft_printf("Error: Contain duplicates.\n"), false);
 	return (true);
 }
-
-// int	check_errors(char **argv, t_stack *a)
-// {
-// 	char	*str;
-
-// 	str = NULL;
-// 	if (have_duplicates(argv) == true)
-// 		str = "Error: args have duplicates in it.\n";
-// 	else if (is_only_int(*argv) == false)
-// 		str = "Error: either your arguments are overflowing, \
-// 		or they contain special characters.\n";
-// 	else if (!a)
-// 		str = "Error: stack_a could not be created.\n";
-// 	else if (is_sorted(a))
-// 		str = "Error: args are already sorted.\n";
-// 	if (str)
-// 		return (write(STDERR_FILENO, str, ft_strlen(str)));
-// 	return (0);
-// }

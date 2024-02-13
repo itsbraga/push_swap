@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 17:48:06 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:41:19 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,9 @@ int			stack_size(t_stack *node);
 /************************************************************************/
 
 void		clear_stack(t_stack **stack);
-int			exit_error_stack(t_stack **a, t_stack **b);
+int			exit_error_stack(t_stack **a, t_stack **b, int argc, char **argv);
 // int			clean_exit(t_stack **a, t_stack **b);
-void		free_split(char **argv);
+void		free_split(int argc, char **argv);
 
 
 /************************************************************************/
@@ -159,6 +159,6 @@ int			nbr_in_str_cmp(const char *s1, const char *s2);
 t_bool		global_check_successful(char **argv);
 // int			check_errors(char **argv, t_stack *a);
 int			split_case(char **argv, t_stack *a);
-t_stack		*convert_n_fill_stack(char **argv);
+t_stack		*convert_n_fill_stack(int argc, char **argv);
 
 #endif
