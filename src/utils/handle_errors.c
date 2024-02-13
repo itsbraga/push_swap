@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 15:14:42 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 20:26:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	clear(t_stack **stack)
+void	clear_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -27,14 +27,14 @@ void	clear(t_stack **stack)
 	*stack = NULL;
 }
 
-void	is_error(t_stack **a, t_stack **b)
+int	exit_error_stack(t_stack **a, t_stack **b)
 {
 	if (a == NULL || *a != NULL)
-		clear(a);
+		clear_stack(a);
 	if (b == NULL || *b != NULL)
-		clear(b);
-	write(2, "Error\n", 6);
-	exit(1);
+		clear_stack(b);
+	write(STDERR_FILENO, "Error\n", 6);
+	return (EXIT_FAILURE);
 }
 
 void	free_split(char **argv)
@@ -43,9 +43,6 @@ void	free_split(char **argv)
 
 	i = 0;
 	while (argv[i])
-	{
-		free(argv[i]);
-		i++;
-	}
+		free(argv[i++]);
 	free(argv);
 }

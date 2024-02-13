@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isanint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 11:55:04 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/13 15:35:04 by annabrag         ###   ########.fr       */
+/*   Created: 2024/02/13 15:34:45 by annabrag          #+#    #+#             */
+/*   Updated: 2024/02/13 17:35:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_isdigit(int c)
+int	ft_isanint(int c)
 {
-	if (c >= 48 && c <= 57)
+	if (ft_isdigit(c) && (c >= INT_MIN && c <= INT_MAX))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

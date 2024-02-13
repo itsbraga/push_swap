@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 18:44:48 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 17:48:06 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,9 @@ int			stack_size(t_stack *node);
 /*																		*/
 /************************************************************************/
 
-void		clear(t_stack **stack);
-void		is_error(t_stack **a, t_stack **b);
+void		clear_stack(t_stack **stack);
+int			exit_error_stack(t_stack **a, t_stack **b);
+// int			clean_exit(t_stack **a, t_stack **b);
 void		free_split(char **argv);
 
 
@@ -140,7 +141,6 @@ void		free_split(char **argv);
 t_stack		*find_min(t_stack *node);
 // int			get_min_idx(t_stack *node);
 int			find_min_content(t_stack *node);
-// int			find_max_content(t_stack *node);
 int			get_distance_from_min(t_stack **a, int min);
 void		set_idx(t_stack **stack);
 void		set_pos(t_stack **stack);
@@ -157,7 +157,8 @@ void		show_stack(t_stack *node, char c);
 
 int			nbr_in_str_cmp(const char *s1, const char *s2);
 t_bool		global_check_successful(char **argv);
+// int			check_errors(char **argv, t_stack *a);
 int			split_case(char **argv, t_stack *a);
-t_stack		*parse_n_fill(char **argv);
+t_stack		*convert_n_fill_stack(char **argv);
 
 #endif

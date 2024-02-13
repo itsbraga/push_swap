@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 17:04:35 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 20:58:22 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ static t_bool	is_only_digit(char *str)
 	int	i;
 
 	i = 0;
-	if (is_sign(str[i]) == true && str[i + 1])
+	if (is_sign(str[i]) && str[i + 1])
 		i++;
-	else if (is_space(&str[i]) == true && str[i + 1])
+	else if (is_space(&str[i]) && str[i + 1])
 		i++;
-	while (str[i] && ft_isdigit(str[i]) == 1)
+	while (str[i] && ft_isdigit(str[i]))
 		i++;
 	if (str[i] && !ft_isdigit(str[i]))
 		return (false);
@@ -80,3 +80,22 @@ t_bool	global_check_successful(char **argv)
 	}
 	return (true);
 }
+
+// int	check_errors(char **argv, t_stack *a)
+// {
+// 	char	*str;
+
+// 	str = NULL;
+// 	if (have_duplicates(argv) == true)
+// 		str = "Error: args have duplicates in it.\n";
+// 	else if (is_only_int(*argv) == false)
+// 		str = "Error: either your arguments are overflowing, \
+// 		or they contain special characters.\n";
+// 	else if (!a)
+// 		str = "Error: stack_a could not be created.\n";
+// 	else if (is_sorted(a))
+// 		str = "Error: args are already sorted.\n";
+// 	if (str)
+// 		return (write(STDERR_FILENO, str, ft_strlen(str)));
+// 	return (0);
+// }

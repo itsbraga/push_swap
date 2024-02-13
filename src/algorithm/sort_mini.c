@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_mini.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:36:00 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/10 18:46:58 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 21:25:53 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 static void	sort_three(t_stack **stack)
 {
-	int	a;
-	int	b;
-	int	c;
+	int	top;
+	int	mid;
+	int	bot;
 
-	a = (*stack)->content;
-	b = (*stack)->next->content;
-	c = (*stack)->next->next->content;
+	top = (*stack)->content;
+	mid = (*stack)->next->content;
+	bot = (*stack)->next->next->content;
 	if (is_sorted(*stack) == true)
 		return ;
-	else if ((a < b) && (b > c) && (a < c))
+	else if ((top < mid) && (mid > bot) && (top < bot))
 	{
 		rra(stack);
 		sa(stack);
 	}
-	else if ((a < b) && (b > c) && (a > c))
+	else if ((top < mid) && (mid > bot) && (top > bot))
 		rra(stack);
-	else if ((a > b) && (b < c) && (a < c))
+	else if ((top > mid) && (mid < bot) && (top < bot))
 		sa(stack);
-	else if ((a > b) && (b < c) && (a > c))
+	else if ((top > mid) && (mid < bot) && (top > bot))
 		ra(stack);
 	else
 	{

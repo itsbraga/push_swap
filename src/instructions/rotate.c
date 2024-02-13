@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 22:18:15 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 21:07:45 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 16:34:58 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rotate(t_stack **stack)
 	t_stack		*tmp;
 	t_stack		*last;
 
-	if (!(*stack) || !((*stack)->next))
+	if (stack_size(*stack) < 2)
 		return ;
 	tmp = (*stack);
 	(*stack) = (*stack)->next;
@@ -46,9 +46,7 @@ void	rb(t_stack **b)
 // the first elem becomes the last one
 void	rr(t_stack **a, t_stack **b)
 {
-	if (stack_size(*a) > 1)
-		rotate(a);
-	if (stack_size(*b) > 1)
-		rotate(b);
+	rotate(a);
+	rotate(b);
 	ft_printf("rr\n");
 }

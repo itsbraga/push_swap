@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:35:15 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/10 18:01:23 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 21:26:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	way2five(t_stack **a, t_stack **b)
 	}
 }
 
-/*	Once most of the stack is sorted, A is shifted until the lowest value
+/*	Once most of the stack is sorted, A is rotated until the lowest value
 *	is at the top. If it is in the bottom half of the stack, we reverse
 *	rotate it to get it into position, otherwise we rotate it until it is
 *	at the top of A.
@@ -69,8 +69,6 @@ void	sort(t_stack **a, t_stack **b)
 	sort_mini(a, b);
 	while (*b)
 	{
-		set_idx(a);
-		set_idx(b);
 		get_target_idx(b, a);
 		get_cost2move(a, b);
 		lower_cost_move(a, b);

@@ -3,28 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 15:57:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 18:21:10 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/13 21:17:53 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+// int	split_case(char **argv, t_stack *a)
+// {
+// 	t_stack		*b;
+
+// 	argv = ft_split(argv[1], ' ');
+// 	a = convert_n_fill_stack(argv);
+// 	if (a == NULL)
+// 		(free_split(argv), exit_error_stack(&a, NULL));
+// 	b = NULL;
+// 	if (is_sorted(a) == true)
+// 		clear_stack(&a);
+// 	else
+// 		(set_pos(&a), push_swap(&a, &b), clear_stack(&a), clear_stack(&b));
+// 	free_split(argv);
+// 	return (EXIT_SUCCESS);
+// }
 
 int	split_case(char **argv, t_stack *a)
 {
 	t_stack		*b;
 
 	argv = ft_split(argv[1], ' ');
-	a = parse_n_fill(argv);
+	a = convert_n_fill_stack(argv);
 	if (!a)
-		(free_split(argv), is_error(&a, NULL));
+		(exit_error_stack(&a, NULL));
 	b = NULL;
 	if (is_sorted(a) == true)
-		clear(&a);
+		clear_stack(&a);
 	else
-		(set_pos(&a), push_swap(&a, &b), clear(&a), clear(&b));
+		(set_pos(&a), push_swap(&a, &b), clear_stack(&a), clear_stack(&b));
 	free_split(argv);
 	return (EXIT_SUCCESS);
 }
