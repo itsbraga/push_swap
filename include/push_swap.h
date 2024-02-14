@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 23:41:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:05:42 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 
 /************************************************************************/
-/*																		*/
-/*								LIBRARIES								*/
-/*																		*/
+/*									*/
+/*				LIBRARIES				*/
+/*									*/
 /************************************************************************/
 
 # include <unistd.h>
@@ -29,9 +29,9 @@
 
 
 /************************************************************************/
-/*																		*/
-/*							REDEFINITIONS								*/
-/*																		*/
+/*									*/
+/*				REDEFINITIONS				*/
+/*									*/
 /************************************************************************/
 
 typedef enum Bool
@@ -55,31 +55,35 @@ typedef struct s_stack
 
 
 /************************************************************************/
-/*																		*/
-/*							INSTRUCTIONS								*/
-/*																		*/
+/*									*/
+/*				INSTRUCTIONS				*/
+/*									*/
 /************************************************************************/
 
+void		do_swap(t_stack **stack);
 void		sa(t_stack **a);
 void		sb(t_stack **b);
 void		ss(t_stack **a, t_stack **b);
 
+void		do_rotate(t_stack **stack);
 void		ra(t_stack **a);
 void		rb(t_stack **b);
 void		rr(t_stack **a, t_stack **b);
 
+void		do_reverse_rotate(t_stack **stack);
 void		rra(t_stack **a);
 void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
 
+void		do_push(t_stack **from, t_stack **to);
 void		pa(t_stack **from_b, t_stack **to_a);
 void		pb(t_stack **from_a, t_stack **to_b);
 
 
 /************************************************************************/
-/*																		*/
-/*							COSTS AND MOVES								*/
-/*																		*/
+/*									*/
+/*				COSTS AND MOVES				*/
+/*									*/
 /************************************************************************/
 
 void		get_cost2move(t_stack **a, t_stack **b);
@@ -88,9 +92,9 @@ void		exec_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
 
 /************************************************************************/
-/*																		*/
-/*							   ALGORITHM								*/
-/*																		*/
+/*									*/
+/*				ALGORITHM				*/
+/*									*/
 /************************************************************************/
 
 void		sort_mini(t_stack **a, t_stack **b);
@@ -99,18 +103,18 @@ t_bool		is_sorted(t_stack *node);
 
 
 /************************************************************************/
-/*																		*/
-/*							SORT FUNCTION								*/
-/*																		*/
+/*									*/
+/*				SORT FUNCTION				*/
+/*									*/
 /************************************************************************/
 
 void		push_swap(t_stack **a, t_stack **b);
 
 
 /************************************************************************/
-/*																		*/
-/*							STACK HANDLER								*/
-/*																		*/
+/*									*/
+/*				STACK HANDLER				*/
+/*									*/
 /************************************************************************/
 
 t_stack		*stack_new(int number);
@@ -121,21 +125,20 @@ int			stack_size(t_stack *node);
 
 
 /************************************************************************/
-/*																		*/
-/*						PROTECTION FUNCTIONS							*/
-/*																		*/
+/*									*/
+/*			PROTECTION FUNCTIONS				*/
+/*									*/
 /************************************************************************/
 
 void		clear_stack(t_stack **stack);
 int			exit_error_stack(t_stack **a, t_stack **b, int argc, char **argv);
-// int			clean_exit(t_stack **a, t_stack **b);
 void		free_split(int argc, char **argv);
 
 
 /************************************************************************/
-/*																		*/
-/*							UTIL FUNCTIONS								*/
-/*																		*/
+/*									*/
+/*				UTIL FUNCTIONS				*/
+/*									*/
 /************************************************************************/
 
 t_stack		*find_min(t_stack *node);
@@ -150,15 +153,15 @@ void		show_stack(t_stack *node, char c);
 
 
 /************************************************************************/
-/*																		*/
-/*						PARSING AND INITIALIZATION						*/
-/*																		*/
+/*									*/
+/*			PARSING AND INITIALIZATION			*/
+/*									*/
 /************************************************************************/
 
 int			nbr_in_str_cmp(const char *s1, const char *s2);
 t_bool		global_check_successful(char **argv);
-// int			check_errors(char **argv, t_stack *a);
 int			split_case(char **argv, t_stack *a);
 t_stack		*convert_n_fill_stack(int argc, char **argv);
+
 
 #endif

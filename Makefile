@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 16:32:05 by annabrag          #+#    #+#              #
-#    Updated: 2024/02/13 23:54:51 by annabrag         ###   ########.fr        #
+#    Updated: 2024/02/14 17:07:31 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,32 +64,33 @@ MAKEFLAGS	+=	--no-print-directory
 #										#
 #################################################################################
 
-INSTRUCTIONS_DIR	=	instructions/
-INSTRUCTIONS_FILES	=	swap.c \
-					rotate.c \
-					reverse_rotate.c \
-					push.c
+OP_DIR		=	operations/
+OP_FILES	=	swap.c \
+			rotate.c \
+			reverse_rotate.c \
+			push.c
 
-UTILS_DIR		=	utils/
-UTILS_FILES		=	stack.c \
-				handle_errors.c \
-				set_elem.c \
-				display.c
+UTILS_DIR	=	utils/
+UTILS_FILES	=	stack.c \
+			handle_errors.c \
+			set_elem.c \
+			display.c
 
-ALGO_DIR		=	algorithm/
-ALGO_FILES		=	sort_mini.c \
-				sort.c \
-				cost.c \
-				move.c \
-				sort_utils.c
+ALGO_DIR	=	algorithm/
+ALGO_FILES	=	sort_mini.c \
+			sort.c \
+			cost.c \
+			move.c \
+			sort_utils.c
 
-EXEC_DIR		=	exec/
-EXEC_FILES		=	check_args.c \
-				check_args2.c \
-				init.c \
-				main.c
+EXEC_DIR	=	exec/
+EXEC_FILES	=	check_args.c \
+			check_args2.c \
+			init.c \
+			main.c
 
-# SRC_BONUS	=
+# BONUS_DIR	=	bonus_src/
+# BONUS_FILES	=	main.c \
 
 
 #################################################################################
@@ -102,7 +103,7 @@ EXEC_FILES		=	check_args.c \
 
 SRC_DIR		=	src/
 
-SRC_NAMES	=	$(addprefix $(INSTRUCTIONS_DIR), $(INSTRUCTIONS_FILES)) \
+SRC_NAMES	=	$(addprefix $(OP_DIR), $(OP_FILES)) \
 			$(addprefix $(UTILS_DIR), $(UTILS_FILES)) \
 			$(addprefix $(ALGO_DIR), $(ALGO_FILES)) \
 			$(addprefix $(EXEC_DIR), $(EXEC_FILES))
@@ -111,7 +112,7 @@ OBJ_DIR		=	obj/
 
 OBJ_NAMES	=	$(SRC_NAMES:.c=.o)
 
-OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(INSTRUCTIONS_DIR) \
+OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(OP_DIR) \
             		$(UTILS_DIR) \
 			$(ALGO_DIR) \
 			$(EXEC_DIR))

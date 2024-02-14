@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:57:48 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 15:12:37 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/14 16:30:18 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	swap(t_stack **stack)
+void	do_swap(t_stack **stack)
 {
 	t_stack		*tmp;
 
-	if (!(*stack) || !((*stack)->next))
+	if (stack_size(*stack) < 2)
 		return ;
 	tmp = (*stack);
 	(*stack) = (*stack)->next;
@@ -27,21 +27,21 @@ static void	swap(t_stack **stack)
 // swap the first two elem at the top of stack_a
 void	sa(t_stack **a)
 {
-	swap(a);
+	do_swap(a);
 	ft_printf("sa\n");
 }
 
 // swap the first two elem at the top of stack_b
 void	sb(t_stack **b)
 {
-	swap(b);
+	do_swap(b);
 	ft_printf("sb\n");
 }
 
 // swap the first two elem at the top of both stacks
 void	ss(t_stack **a, t_stack **b)
 {
-	swap(a);
-	swap(b);
+	do_swap(a);
+	do_swap(b);
 	ft_printf("ss\n");
 }

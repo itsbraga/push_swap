@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 23:14:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:11:18 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ static t_bool	have_duplicates(char **argv)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
-		j = 1;
+		j = 0;
 		while (argv[j])
 		{
 			if (j != i && (nbr_in_str_cmp(argv[i], argv[j]) == 0))
@@ -69,16 +69,14 @@ t_bool	global_check_successful(char **argv)
 {
 	int	i;
 
-	i = 1;
-	printf("argv[0]: %s\n", argv[0]);
-	printf("argv[1]: %s\n", argv[1]);
+	i = 0;
 	while (argv[i])
 	{
 		if (!is_only_digit(argv[i]))
-			return (ft_printf("Error: Not only digits.\n"), false);
+			return (ft_printf("Error\n"), false);
 		i++;
 	}
 	if (have_duplicates(argv) == true)
-		return (ft_printf("Error: Contain duplicates.\n"), false);
+		return (ft_printf("Error\n"), false);
 	return (true);
 }

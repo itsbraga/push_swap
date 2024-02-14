@@ -6,13 +6,13 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:54:24 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 16:34:51 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:31:26 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	reverse_rotate(t_stack **stack)
+void	do_reverse_rotate(t_stack **stack)
 {
 	t_stack		*tmp;
 	t_stack		*last;
@@ -32,7 +32,7 @@ static void	reverse_rotate(t_stack **stack)
 // the last elem becomes the first one
 void	rra(t_stack **a)
 {
-	reverse_rotate(a);
+	do_reverse_rotate(a);
 	ft_printf("rra\n");
 }
 
@@ -40,7 +40,7 @@ void	rra(t_stack **a)
 // the last elem becomes the first one
 void	rrb(t_stack **b)
 {
-	reverse_rotate(b);
+	do_reverse_rotate(b);
 	ft_printf("rrb\n");
 }
 
@@ -48,7 +48,7 @@ void	rrb(t_stack **b)
 // the last elem becomes the first one
 void	rrr(t_stack **a, t_stack **b)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
+	do_reverse_rotate(a);
+	do_reverse_rotate(b);
 	ft_printf("rrr\n");
 }
