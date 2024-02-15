@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:35:15 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/13 21:26:21 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:55:02 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	sort(t_stack **a, t_stack **b)
 	{
 		get_target_idx(b, a);
 		get_cost2move(a, b);
-		lower_cost_move(a, b);
+		best_cost_move(a, b);
 	}
 	if (!is_sorted(*a))
 		final_rotate(a);

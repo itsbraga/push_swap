@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:31:20 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/10 18:01:33 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/15 03:26:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	set_abs(int nb)
+static int	n_abs(int nb)
 {
 	if (nb < 0)
 		nb *= -1;
@@ -53,24 +53,24 @@ void	get_cost2move(t_stack **a, t_stack **b)
 	}
 }
 
-void	lower_cost_move(t_stack **a, t_stack **b)
+void	best_cost_move(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp_b;
-	int		lower_cost;
+	t_stack	*tmp;
+	int		best_cost;
 	int		cost_a;
 	int		cost_b;
 
-	tmp_b = *b;
-	lower_cost = INT_MAX;
-	while (tmp_b)
+	tmp = *b;
+	best_cost = INT_MAX;
+	while (tmp)
 	{
-		if (set_abs(tmp_b->cost_a) + set_abs(tmp_b->cost_b) < set_abs(lower_cost))
+		if (n_abs(tmp->cost_a) + n_abs(tmp->cost_b) < n_abs(best_cost))
 		{
-			lower_cost = set_abs(tmp_b->cost_a) + set_abs(tmp_b->cost_b);
-			cost_a = tmp_b->cost_a;
-			cost_b = tmp_b->cost_b;
+			best_cost = n_abs(tmp->cost_a) + n_abs(tmp->cost_b);
+			cost_a = tmp->cost_a;
+			cost_b = tmp->cost_b;
 		}
-		tmp_b = tmp_b->next;
+		tmp = tmp->next;
 	}
 	exec_move(a, b, cost_a, cost_b);
 }

@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:33:22 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 16:35:25 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:58:43 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,21 +96,6 @@ static int	get_target(t_stack **a, int b_pos, int target_pos, int target_idx)
 	}
 	return (target_idx);
 }
-
-// void	get_target_idx(t_stack **b, t_stack **a)
-// {
-// 	t_stack		*tmp_b;
-// 	int			target_idx;
-
-// 	tmp_b = *b;
-// 	target_idx = 0;
-// 	while (tmp_b)
-// 	{
-// 		target_idx = get_target(a, tmp_b->pos, INT_MAX, target_idx);
-// 		tmp_b->target_idx = target_idx;
-// 		tmp_b = tmp_b->next;
-// 	}
-// }
 
 void	get_target_idx(t_stack **b, t_stack **a)
 {

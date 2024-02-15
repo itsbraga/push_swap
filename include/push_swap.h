@@ -6,13 +6,12 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:26:52 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/14 17:05:42 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 02:18:30 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 
 /************************************************************************/
 /*									*/
@@ -26,7 +25,7 @@
 
 # include "../libft/include/libft.h"
 # include "../libft/include/ft_printf.h"
-
+# include "../libft/include/get_next_line.h"
 
 /************************************************************************/
 /*									*/
@@ -53,7 +52,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-
 /************************************************************************/
 /*									*/
 /*				INSTRUCTIONS				*/
@@ -79,7 +77,6 @@ void		do_push(t_stack **from, t_stack **to);
 void		pa(t_stack **from_b, t_stack **to_a);
 void		pb(t_stack **from_a, t_stack **to_b);
 
-
 /************************************************************************/
 /*									*/
 /*				COSTS AND MOVES				*/
@@ -87,9 +84,8 @@ void		pb(t_stack **from_a, t_stack **to_b);
 /************************************************************************/
 
 void		get_cost2move(t_stack **a, t_stack **b);
-void		lower_cost_move(t_stack **a, t_stack **b);
+void		best_cost_move(t_stack **a, t_stack **b);
 void		exec_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
-
 
 /************************************************************************/
 /*									*/
@@ -101,7 +97,6 @@ void		sort_mini(t_stack **a, t_stack **b);
 void		sort(t_stack **a, t_stack **b);
 t_bool		is_sorted(t_stack *node);
 
-
 /************************************************************************/
 /*									*/
 /*				SORT FUNCTION				*/
@@ -109,7 +104,6 @@ t_bool		is_sorted(t_stack *node);
 /************************************************************************/
 
 void		push_swap(t_stack **a, t_stack **b);
-
 
 /************************************************************************/
 /*									*/
@@ -123,7 +117,6 @@ t_stack		*get_before_last(t_stack *node);
 void		add2bottom(t_stack **stack, t_stack *new);
 int			stack_size(t_stack *node);
 
-
 /************************************************************************/
 /*									*/
 /*			PROTECTION FUNCTIONS				*/
@@ -133,7 +126,6 @@ int			stack_size(t_stack *node);
 void		clear_stack(t_stack **stack);
 int			exit_error_stack(t_stack **a, t_stack **b, int argc, char **argv);
 void		free_split(int argc, char **argv);
-
 
 /************************************************************************/
 /*									*/
@@ -151,17 +143,25 @@ int			get_lowest_idx(t_stack **stack);
 void		get_target_idx(t_stack **b, t_stack **a);
 void		show_stack(t_stack *node, char c);
 
-
 /************************************************************************/
 /*									*/
 /*			PARSING AND INITIALIZATION			*/
 /*									*/
 /************************************************************************/
 
-int			nbr_in_str_cmp(const char *s1, const char *s2);
+t_bool		is_sign(char c);
+int			nb_strcmp(const char *s1, const char *s2);
+int			have_zeros(char *str);
 t_bool		global_check_successful(char **argv);
 int			split_case(char **argv, t_stack *a);
 t_stack		*convert_n_fill_stack(int argc, char **argv);
 
+/************************************************************************/
+/*									*/
+/*				BONUS					*/
+/*									*/
+/************************************************************************/
+
+int			do_op(t_stack **a, t_stack **b, char *move);
 
 #endif

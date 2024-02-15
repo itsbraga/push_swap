@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:40:54 by panther           #+#    #+#             */
-/*   Updated: 2023/11/23 00:15:00 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/14 18:47:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdio.h>
 # include "colors.h"
 
+# include "libft.h"
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 6
 # endif
@@ -32,9 +34,9 @@
 ** Linux : ulimit -n 
 */
 
-size_t	ft_strlen(char *s);
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *line, char *buffer);
+size_t	ft_strlen_gnl(char *s);
+char	*ft_strchr_gnl(char *s, int c);
+char	*ft_strjoin_gnl(char *line, char *buffer);
 char	*extract_line(char *line);
 char	*update_line(char *line);
 char	*use_read_on_line(int fd, char *line);

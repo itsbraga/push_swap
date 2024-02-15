@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args2.c                                      :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 15:57:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/13 23:50:08 by annabrag         ###   ########.fr       */
+/*   Created: 2024/02/10 16:58:14 by art3mis           #+#    #+#             */
+/*   Updated: 2024/02/15 01:49:21 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int nbr_in_str_cmp(const char *s1, const char *s2)
+void	show_stack(t_stack *node, char c)
 {
-	int	i;
-	int	j;
-	
-	i = 0;
-	j = i;
-	if (s1[i] == '+')
+	t_stack			*tmp;
+	unsigned int	idx;
+
+	if (!node)
+		return ;
+	tmp = node;
+	idx = 0;
+	write(1, "\n", 1);
+	while (tmp)
 	{
-		if (s2[j] != '+')
-			i++;
+		ft_printf("Stack (%d) ➔	  %d\n", idx++, tmp->content);
+		tmp = tmp->next;
 	}
-	else
-	{
-		if (s2[j] == '+')
-			j++;
-	}
-	while (s1[i] && s2[j] && s1[i] == s2[j])
-	{
-		i++;
-		j++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
+	ft_printf("		  —\n");
+	ft_printf("		  %c\n\n", c);
 }

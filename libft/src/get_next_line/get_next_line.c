@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: art3mis <art3mis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 22:39:22 by panther           #+#    #+#             */
-/*   Updated: 2023/11/23 00:16:20 by art3mis          ###   ########.fr       */
+/*   Updated: 2024/02/14 18:49:27 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*use_read_on_line(int fd, char *line)
 	if (!buffer)
 		return (NULL);
 	read_bytes = 1;
-	while (!ft_strchr(line, '\n') && read_bytes != 0)
+	while (!ft_strchr_gnl(line, '\n') && read_bytes != 0)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
@@ -30,7 +30,7 @@ char	*use_read_on_line(int fd, char *line)
 			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
-		line = ft_strjoin(line, buffer);
+		line = ft_strjoin_gnl(line, buffer);
 	}
 	free(buffer);
 	return (line);
@@ -45,9 +45,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line[fd] = use_read_on_line(fd, line[fd]);
 	if (!line[fd])
-	{
 		return (NULL);
-	}
 	read_line = extract_line(line[fd]);
 	line[fd] = update_line(line[fd]);
 	return (read_line);

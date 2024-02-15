@@ -6,7 +6,7 @@
 #    By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 11:07:10 by annabrag          #+#    #+#              #
-#    Updated: 2024/02/13 15:35:40 by annabrag         ###   ########.fr        #
+#    Updated: 2024/02/15 02:03:16 by annabrag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,6 @@ FT_FD_FILES	= 	ft_putchar_fd.c \
 FT_IS_DIR 	= 	ft_is/
 FT_IS_FILES	= 	ft_isalpha.c \
 			ft_isdigit.c \
-			ft_isanint.c \
 			ft_isalnum.c \
 			ft_isascii.c \
 			ft_isprint.c
@@ -193,13 +192,13 @@ OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 			@mkdir -p $(dir $@)
-			@printf "$(ITAL)$(PINK)Compiling: $(RESET)$(ITAL)$<\n"
+			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<                                       \r"
 			@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 # link .o files to the library
 $(NAME):	$(OBJ)
 			@$(LIBC) $(NAME) $(OBJ)
-			@printf "\n$(RESET)$(BOLD)$(PINK)[LIBFT]$(RESET), $(BOLD)$(BLUE)[GET_NEXT_LINE]$(RESET), $(BOLD)$(RED)[FT_PRINTF]$(RESET), $(BOLD)$(YELLOW)[POOL_FUNC]$(RESET) successfully compiled! ฅ^•ﻌ•^ฅ\n\n"
+			@printf "\n\n$(RESET)$(BOLD)$(PINK)[LIBFT]$(RESET), $(BOLD)$(BLUE)[GET_NEXT_LINE]$(RESET), $(BOLD)$(RED)[FT_PRINTF]$(RESET), $(BOLD)$(YELLOW)[POOL_FUNC]$(RESET) successfully compiled! ฅ^•ﻌ•^ฅ\n\n"
 			@printf "\n. ⋅ ˚̣- : ✧ : – ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ₊° ˗ ˏ ˋ ♡ ˎˊ ˗ °₊ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ ⊹ ⭒ – : ✧ : -˚̣⋅ .\n\n\n"
 
 all:		$(NAME)
@@ -208,12 +207,12 @@ san:		$(FSANITIZE)
 
 clean:
 			@$(RM) $(OBJ_DIR)
-			@printf "$(BOLD)$(PINK)[LIBFT & Co.]:\t$(RESET)$(PINK)object files $(RESET)\t=> CLEANED!\n\n"
+			@printf "$(BOLD)$(PINK)[LIBFT & Co.]:\t$(RESET)$(PINK)object files $(RESET)\t=> CLEANED!\n"
 
 fclean: 	clean
 			@$(RM) $(NAME)
 			@find . -name ".DS_Store" -delete
-			@printf "$(BOLD)$(PURPLE)[LIBFT & Co.]: $(RESET)$(PURPLE)exec. files $(RESET)\t=> CLEANED!\n\n"
+			@printf "$(BOLD)$(PINK)[LIBFT & Co.]: $(RESET)$(PINK)exec. files $(RESET)\t=> CLEANED!\n"
 
 re:		fclean all
 			@printf "\n\n✨ $(BOLD)$(YELLOW)Cleaning and rebuilding done! $(RESET)✨\n"

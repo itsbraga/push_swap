@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:09:22 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/14 17:02:59 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 03:38:17 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "../include/push_swap.h"
 
 static void	swap(t_stack **a, t_stack **b, char *move)
 {
@@ -62,21 +62,21 @@ static void	push(t_stack **a, t_stack **b, char *move)
 int	do_op(t_stack **a, t_stack **b, char *move)
 {
 	if (!move)
-		return ;
+		return (EXIT_FAILURE);
 	if (!ft_strcmp(move, "sa\n") || !ft_strcmp(move, "sb\n")
 		|| !ft_strcmp(move, "ss\n"))
 		swap(a, b, move);
-	if (!ft_strcmp(move, "ra\n") || !ft_strcmp(move, "rb\n")
+	else if (!ft_strcmp(move, "ra\n") || !ft_strcmp(move, "rb\n")
 		|| !ft_strcmp(move, "rr\n"))
 		rotate(a, b, move);
-	if (!ft_strcmp(move, "rra\n") || !ft_strcmp(move, "rrb\n")
+	else if (!ft_strcmp(move, "rra\n") || !ft_strcmp(move, "rrb\n")
 		|| !ft_strcmp(move, "rrr\n"))
 		reverse_rotate(a, b, move);
-	if (!ft_strcmp(move, "pa\n") || !ft_strcmp(move, "pb\n"))
+	else if (!ft_strcmp(move, "pa\n") || !ft_strcmp(move, "pb\n"))
 		push(a, b, move);
 	else
 	{
-		write(STDERR_FILENO, "Error: operation does not exist.\n", 33);
+		write(STDERR_FILENO, "Error\n", 6);
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
