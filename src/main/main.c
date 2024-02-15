@@ -6,7 +6,7 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:28:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/15 08:55:10 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 09:34:34 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ t_bool	is_sorted(t_stack *node)
 	while (tmp->next != NULL)
 	{
 		if (tmp->content > tmp->next->content)
-			return (false);
+		                                       	return (false);
 		tmp = tmp->next;
 	}
-	return (true);
+	return (true);                     
 }
 
 void	push_swap(t_stack **a, t_stack **b)
