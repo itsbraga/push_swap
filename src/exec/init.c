@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 16:58:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/15 01:49:21 by annabrag         ###   ########.fr       */
+/*   Created: 2024/01/16 21:49:52 by art3mis           #+#    #+#             */
+/*   Updated: 2024/02/15 08:10:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
-void	show_stack(t_stack *node, char c)
+t_stack	*convert_n_fill_stack(int argc, char **argv)
 {
-	t_stack			*tmp;
-	unsigned int	idx;
+	t_stack		*a;
+	int			i;
+	long		nbr;
 
-	if (!node)
-		return ;
-	tmp = node;
-	idx = 0;
-	write(1, "\n", 1);
-	while (tmp)
+	a = NULL;
+	i = 0;
+	while (argv[i])
 	{
-		ft_printf("Stack (%d) ➔	  %d\n", idx++, tmp->content);
-		tmp = tmp->next;
+		nbr = ft_atol(argv[i]);
+		if (nbr >= INT_MIN && nbr <= INT_MAX)
+		{
+			if (i == 0)
+				a = stack_new((int)nbr);
+			else
+				add2bottom(&a, stack_new((int)nbr));
+		}
+		else
+			exit_error_stack(&a, NULL, argc, argv);
+		i++;
 	}
-	ft_printf("		  —\n");
-	ft_printf("		  %c\n\n", c);
+	return (a);
 }

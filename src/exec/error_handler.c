@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:16:14 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/14 22:44:19 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 08:10:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	clear_stack(t_stack **stack)
 {

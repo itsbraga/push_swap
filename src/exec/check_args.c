@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:11:28 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/15 02:52:16 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 08:10:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 t_bool	is_sign(char c)
 {

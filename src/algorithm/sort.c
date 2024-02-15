@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:35:15 by annabrag          #+#    #+#             */
-/*   Updated: 2024/02/15 01:55:02 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 08:10:32 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 /*	Compares the top elem of A with the minimum elem of B. If the top
 *	elem of A is smaller than the minimum of B, it performs a reverse

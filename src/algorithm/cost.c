@@ -6,11 +6,11 @@
 /*   By: annabrag <annabrag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:31:20 by art3mis           #+#    #+#             */
-/*   Updated: 2024/02/15 03:26:32 by annabrag         ###   ########.fr       */
+/*   Updated: 2024/02/15 08:09:48 by annabrag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 static int	n_abs(int nb)
 {

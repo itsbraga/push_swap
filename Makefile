@@ -60,7 +60,7 @@ MAKEFLAGS	+=	--no-print-directory
 # -MF specifies the file name where dependency rules will be written. If not
 # specified, a default file name is used.
 # DEPFLAGS	=	-MMD -MP -MF
-CFLAGS		=	-Wall -Wextra -Werror -I 
+CFLAGS		=	-Wall -Wextra -Werror -I
 INC		=	include/
 
 DEBUG		=	-g -O0
@@ -112,7 +112,7 @@ M_MANDAT_FILE	=	main.c
 #									  	#
 #################################################################################
 
-SRC_DIR		=	src/mandatory/
+SRC_DIR		=	src/
 
 SRC_NAMES	=	$(addprefix $(OP_DIR), $(OP_FILES)) \
 			$(addprefix $(UTILS_DIR), $(UTILS_FILES)) \
@@ -120,7 +120,7 @@ SRC_NAMES	=	$(addprefix $(OP_DIR), $(OP_FILES)) \
 			$(addprefix $(EXEC_DIR), $(EXEC_FILES)) \
 			$(addprefix $(M_MANDAT_DIR), $(M_MANDAT_FILE))
 
-OBJ_DIR		=	obj/mandatory/
+OBJ_DIR		=	obj/
 
 OBJ_NAMES	=	$(SRC_NAMES:.c=.o)
 
@@ -133,9 +133,9 @@ OBJ_FOLDERS	=	$(addprefix $(OBJ_DIR), $(OP_DIR) \
 OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 
 
-#### 1 #########################	  BONUS PART	################################
+#############################	  BONUS PART	#################################
 
-# BONUS_DIR	=	src/bonus/
+# BONUS_SRC_DIR	=	src/bonus/
 
 # OBJ_B_DIR	=	obj/bonus/
 
@@ -146,13 +146,9 @@ OBJ		=	$(addprefix $(OBJ_DIR), $(OBJ_NAMES))
 
 # BONUS_OBJ_NAMES	=	$(BONUS_FILES:.c=.o)
 
-# BONUS_OBJ	=	$(addprefix $(BONUS_OBJ_DIR), $(BONUS_OBJ_NAMES))
-
-# #### 2 ###########################################################
-
 # OBJ_B_NAMES	=	$(SRC_B_NAMES:.c=.o)
 
-# OBJ_B		=	$(addprefix $(OBJ_B_DIR), $(OBJ_B_NAMES))
+# BONUS_OBJ	=	$(addprefix $(OBJ_B_DIR), $(BONUS_OBJ_NAMES), $(OBJ_B_NAMES))
 
 
 #################################################################################
@@ -200,7 +196,7 @@ $(PUSH_SWAP):	$(OBJ)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 			@mkdir -p $(dir $@)
-			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<          \r"
+			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<         \r"
 			@$(CC) $(DEBUG) $(CFLAGS) $(INC) -c $< -o $@
 
 # -include $(DEP)
@@ -279,9 +275,9 @@ norm:
 #										#
 #################################################################################
 
-# $(CHECKER): $(OBJ_B) $(BONUS_OBJ)
+# $(CHECKER): $(BONUS_OBJ)
 # 		@printf "\n\n$(RESET)$(BOLD)$(CYAN)[push_swap BONUS]:\t$(RESET)"
-# 		@$(CC) $(CFLAGS) $(INC) $(OBJ_B) $(BONUS_OBJ) libft.a -o $(CHECKER)
+# 		@$(CC) $(CFLAGS) $(INC) $(BONUS_OBJ) libft.a -o $(CHECKER)
 # 		@printf "$(CYAN) ./MyChecker ready to launch !$(RESET)\n\n"
 
 # $(BONUS_OBJ_DIR)%.o: $(BONUS_SRC_DIR)%.c
@@ -289,7 +285,7 @@ norm:
 # 			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<                  \r"
 # 			@$(CC) $(DEBUG) $(DEPFLAGS) $(CFLAGS) $(INC) -c $< -o $@
 
-# $(BONUS_OBJ_DIR)%.o: $(BONUS_SRC_DIR)%.c
+# $(OBJ_B_DIR)%.o: $(BONUS_SRC_DIR)%.c
 # 			@mkdir -p $(dir $@)
 # 			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<                  \r"
 # 			@$(CC) $(DEBUG) $(CFLAGS) $(INC) -c $< -o $@
@@ -299,9 +295,6 @@ norm:
 # bonus:
 # 		@make $(MAKEFLAGS) -C $(LIBFT_PATH)
 # 		@cp $(LIBFT_PATH)/libft.a .
-# 		@make allbonus
 # 		@printf "\n\n✨ $(BOLD)$(YELLOW)Bonuses successfully compiled! $(RESET)✨\n"
-
-# allbonus:	$(CHECKER)
 
 .PHONY:		build all clean fclean re diff norm
