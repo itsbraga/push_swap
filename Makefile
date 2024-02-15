@@ -280,11 +280,6 @@ norm:
 # 		@$(CC) $(CFLAGS) $(INC) $(BONUS_OBJ) libft.a -o $(CHECKER)
 # 		@printf "$(CYAN) ./MyChecker ready to launch !$(RESET)\n\n"
 
-# $(BONUS_OBJ_DIR)%.o: $(BONUS_SRC_DIR)%.c
-# 			@mkdir -p $(dir $@)
-# 			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<                  \r"
-# 			@$(CC) $(DEBUG) $(DEPFLAGS) $(CFLAGS) $(INC) -c $< -o $@
-
 # $(OBJ_B_DIR)%.o: $(BONUS_SRC_DIR)%.c
 # 			@mkdir -p $(dir $@)
 # 			@printf "$(ITAL)$(PURPLE)Compiling: $(RESET)$(ITAL)$<                  \r"
